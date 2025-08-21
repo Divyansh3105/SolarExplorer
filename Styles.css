@@ -1,0 +1,37 @@
+/* Size Of Planets And Orbits */
+:root {
+  --sun-size: 80px;
+  --mercury-orbit: 180px;
+  --mercury-size: 14px;
+  --venus-orbit: 260px;
+  --venus-size: 26px;
+  --earth-orbit: 350px;
+  --earth-size: 24px;
+  --moon-orbit-size: 50px;
+  --moon-size: 10px;
+  --mars-orbit: 440px;
+  --mars-size: 20px;
+  --asteroid-belt-orbit: 520px;
+  --jupiter-orbit: 620px;
+  --jupiter-size: 60px;
+  --saturn-orbit: 780px;
+  --saturn-size: 48px;
+  --uranus-orbit: 920px;
+  --uranus-size: 40px;
+  --neptune-orbit: 1050px;
+  --neptune-size: 38px;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #000010;
+  background-image: url("https://www.solarsystemscope.com/textures/download/2k_stars_milky_way.jpg");
+  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
+  font-family: "Inter", sans-serif;
+  overflow: hidden;
+}
