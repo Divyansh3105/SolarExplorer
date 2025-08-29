@@ -1,118 +1,224 @@
-/* Size Of Planets And Orbits */
-:root {
-  --sun-size: 80px;
-  --mercury-orbit: 180px;
-  --mercury-size: 14px;
-  --venus-orbit: 260px;
-  --venus-size: 26px;
-  --earth-orbit: 350px;
-  --earth-size: 24px;
-  --moon-orbit-size: 50px;
-  --moon-size: 10px;
-  --mars-orbit: 440px;
-  --mars-size: 20px;
-  --asteroid-belt-orbit: 520px;
-  --jupiter-orbit: 620px;
-  --jupiter-size: 60px;
-  --saturn-orbit: 780px;
-  --saturn-size: 48px;
-  --uranus-orbit: 920px;
-  --uranus-size: 40px;
-  --neptune-orbit: 1050px;
-  --neptune-size: 38px;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Inter", sans-serif;
 }
 
-/* Body Style */
 body {
-  margin: 0;
-  height: 100vh;
+  background: url(Media/back.jpg) no-repeat center center/cover;
+  min-height: 100vh;
+  color: white;
+  overflow-x: hidden;
+}
+
+/* Navbar */
+.navbar {
+  width: 100%;
+  padding: 16px 70px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: rgba(10, 14, 35, 0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  position: fixed;
+  top: 0;
+  z-index: 100;
+}
+
+/* Logo */
+.logo {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.logo-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #6366f1, #9333ea);
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: #000010;
-  background-image: url("https://www.solarsystemscope.com/textures/download/2k_stars_milky_way.jpg");
-  background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
-  background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
-  font-family: "Inter", sans-serif;
-  overflow: hidden;
+  color: white;
+  font-size: 20px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
 }
 
-/* Orbit Animation */
-@keyframes orbit {
-  from {
-    transform: rotate(0deg);
-  }
-
-  to {
-    transform: rotate(360deg);
-  }
+.logo-text {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.2;
 }
 
-/* Overwriting the generic orbit animation for the moon's specific centering */
-.moon-orbit {
-  animation-name: orbit-moon;
+.logo-title {
+  font-size: 20px;
+  font-weight: 700;
 }
 
-/* Keyframes for the moon's orbit, using translate to center it on the planet */
-@keyframes orbit-moon {
-  from {
-    transform: translate(-50%, -50%) rotate(0deg);
-  }
-
-  to {
-    transform: translate(-50%, -50%) rotate(360deg);
-  }
+.logo-sub {
+  font-size: 13px;
+  color: #a1a1aa;
+  font-weight: 400;
 }
 
-/* Keyframes for the planet's rotation, moving the background image horizontally */
-@keyframes rotate-planet {
-  from {
-    background-position: 0% 50%;
-  }
-
-  to {
-    background-position: 400% 50%;
-  }
+/* Nav Right Side */
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 35px;
 }
 
-/* Keyframes for the sun's pulsating glow effect */
-@keyframes sun-glow {
+.nav-links {
+  display: flex;
+  gap: 32px;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: rgba(255, 255, 255, 0.7);
+  transition: color 0.25s ease, opacity 0.25s ease;
+}
+
+.nav-links a:hover {
+  color: #fff;
+  opacity: 1;
+}
+
+/* Explore Now Button */
+.btn-nav {
+  padding: 11px 26px;
+  background: linear-gradient(90deg, #3b82f6, #9333ea);
+  border-radius: 9999px;
+  color: #fff;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 15px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+  transition: all 0.25s ease;
+}
+
+.btn-nav:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+/* Hero Section */
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 0 20px;
+  background: rgba(0, 0, 0, 0.35);
+}
+
+/* Tagline pill */
+.tagline {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: rgba(55, 65, 81, 0.6);
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 14px;
+  margin-bottom: 28px;
+  font-weight: 500;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.25);
+}
+
+/* Headline */
+.hero h1 {
+  font-size: 100px;
+  font-weight: 1000;
+  background: linear-gradient(90deg, #60a5fa, #9333ea);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin-bottom: 22px;
+}
+
+.hero p {
+  font-size: 20px;
+  max-width: 700px;
+  margin-bottom: 46px;
+  line-height: 1.6;
+  color: #e5e7eb;
+  font-weight: 400;
+}
+
+/* Buttons */
+.btns {
+  display: flex;
+  gap: 20px;
+}
+
+.btn-primary {
+  padding: 14px 30px;
+  background: linear-gradient(90deg, #3b82f6, #9333ea);
+  border: none;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 600;
+  color: white;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.35);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.45);
+}
+
+.btn-secondary {
+  padding: 14px 30px;
+  background: #111827;
+  border-radius: 9999px;
+  font-size: 16px;
+  font-weight: 500;
+  color: white;
+  cursor: pointer;
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  transition: all 0.25s ease;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+}
+
+.btn-secondary:hover {
+  background: #1f2937;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Scroll icon */
+.scroll-icon {
+  position: absolute;
+  bottom: 28px;
+  font-size: 22px;
+  opacity: 0.6;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
   0%,
   100% {
-    box-shadow: 0 0 20px 5px rgba(255, 165, 0, 0.5),
-      0 0 40px 15px rgba(255, 165, 0, 0.3);
-    transform: scale(1);
+    transform: translateY(0);
   }
 
   50% {
-    box-shadow: 0 0 30px 10px rgba(255, 165, 0, 0.7),
-      0 0 60px 25px rgba(255, 165, 0, 0.5);
-    transform: scale(1.05);
+    transform: translateY(10px);
   }
-}
-
-/* --- Solar System Container --- */
-/* The main container for all solar system elements */
-.solar-system {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: var(--neptune-orbit);
-  height: var(--neptune-orbit);
-  transform: scale(1);
-  transition: transform 0.5s ease-in-out;
-}
-
-/* --- Sun --- */
-/* Styles for the Sun, including its background and glow animation */
-.sun {
-  position: absolute;
-  width: var(--sun-size);
-  height: var(--sun-size);
-  background-image: url("https://www.solarsystemscope.com/textures/download/2k_sun.jpg");
-  background-size: cover;
-  border-radius: 50%;
-  z-index: 10;
-  animation: sun-glow 5s infinite ease-in-out;
 }
