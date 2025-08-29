@@ -4,48 +4,55 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SolarExplorer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <title>Solar System Explorer</title>
+    <meta name="description"
+        content="An interactive journey through our solar system, with a hero introduction and planet details revealed in elegant pop-up modals.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="Styles.css">
-    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet">
 
 </head>
 
 <body>
-    <!-- Navbar -->
-    <div class="navbar">
-        <div class="logo">
-            <div class="logo-icon">🪐</div>
-            <div class="logo-text">
-                <span class="logo-title">SolarExplorer</span>
-                <span class="logo-sub">Advanced Space Platform</span>
-            </div>
+    <header class="main-header">
+        <div class="container header-inner">
+            <a href="#top" class="header-brand">
+                <div class="logo-icon"><i class="ri-planet-line"></i></div>
+                <div class="brand-text">
+                    <h1>SolarExplorer</h1>
+                    <p>Advanced Space Platform</p>
+                </div>
+            </a>
+            <label for="nav-toggle" class="nav-toggle-label">
+            </label>
+            <nav class="main-nav-links" aria-label="Main Navigation">
+                <a href="#discoveries">Discoveries</a>
+                <a href="#solar-system">Solar System</a>
+            </nav>
         </div>
-        <div class="nav-right">
-            <div class="nav-links">
-                <a href="#">Solar System</a>
-                <a href="#">Discoveries</a>
-            </div>
-            <a href="#" class="btn-nav">Explore Now →</a>
-        </div>
-    </div>
+    </header>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="tagline">
-            🚀 <span>Advanced Space Exploration Platform</span>
-        </div>
-        <h1>SOLAR SYSTEM</h1>
-        <p>Embark on an interactive journey through our cosmic neighborhood
-            with cutting-edge visualization technology</p>
-        <div class="btns">
-            <button class="btn-primary">Begin Exploration →</button>
-            <button class="btn-secondary"><i
-                    class="ri-play-circle-line text-xl group-hover:scale-110 transition-transform duration-300"></i>
-                Watch Demo</button>
-        </div>
-        <div class="scroll-icon">⬇</div>
-    </section>
+    <main>
+        <header class="static-hero" id="top">
+            <div class="hero-bg"></div>
+            <div class="container hero-inner">
+                <h1 class="title accent-gradient-text">SOLAR SYSTEM EXPLORER</h1>
+                <p class="lead">
+                    Explore the planets and the Sun in a beautifully minimal, responsive layout. Click the button below
+                    to begin your journey through our cosmic neighborhood.
+                </p>
+                <a class="cta" href="#solar-system" title="Explore the Solar System">
+                    <i class="ri-rocket-line"></i>
+                    <span>Explore</span>
+                </a>
+            </div>
+        </header>
+    </main>
 </body>
 
 </html>
