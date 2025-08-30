@@ -13,7 +13,6 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: url(../Media/Space.cur), auto;
 }
 
 body {
@@ -34,6 +33,17 @@ h2 {
   font-family: "Orbitron", sans-serif;
   font-weight: 700;
   color: #fff;
+}
+
+h2 {
+  font-size: 2rem;
+  margin-bottom: 24px;
+  padding-left: 16px;
+  border-left: 4px solid var(--accent-2);
+}
+
+p {
+  margin-bottom: 1rem;
 }
 
 a {
@@ -129,7 +139,6 @@ a {
 
 .planet-tag {
   display: inline-block;
-  color: black;
   padding: 4px 12px;
   background-color: var(--glass);
   border-radius: 99px;
@@ -154,11 +163,12 @@ a {
 
 .planet-info {
   padding: 40px 0 80px;
+  background-image: url(../Media/stars_milky_way.jpg);
 }
 
 .stats-grid {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 24px;
   margin-bottom: 60px;
 }
@@ -192,11 +202,17 @@ a {
   font-weight: 600;
 }
 
-.discoveries-section h2 {
-  font-size: 2rem;
-  margin-bottom: 24px;
-  padding-left: 16px;
-  border-left: 4px solid var(--accent-2);
+.structure-section {
+  margin-bottom: 60px;
+}
+
+.structure-section p {
+  color: var(--muted);
+  max-width: 80ch;
+}
+
+.structure-section p:last-child {
+  margin-bottom: 0;
 }
 
 .discoveries-list {
@@ -234,7 +250,8 @@ a {
 
 .main-footer {
   padding: 48px 0;
-  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background-image: url(../Media/stars_milky_way.jpg);
+
   text-align: center;
 }
 
@@ -243,11 +260,13 @@ a {
   font-size: 0.9rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 860px) {
   .stats-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
   }
+}
 
+@media (max-width: 768px) {
   .header-brand .brand-text h1 {
     font-size: 1rem;
   }
@@ -255,5 +274,11 @@ a {
   .main-nav-links a {
     font-size: 0.8rem;
     padding: 6px 12px;
+  }
+}
+
+@media (max-width: 500px) {
+  .stats-grid {
+    grid-template-columns: 1fr;
   }
 }
