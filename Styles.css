@@ -11,16 +11,16 @@
   --max-width: 1200px;
 
   /* Solar System Animation Variables */
-  --sun-size: 80px;
-  --mercury-size: 12px;
-  --venus-size: 18px;
-  --earth-size: 20px;
-  --mars-size: 16px;
-  --jupiter-size: 40px;
-  --saturn-size: 36px;
-  --uranus-size: 28px;
-  --neptune-size: 26px;
-  --moon-size: 6px;
+  --sun-size: 96px;
+  --mercury-size: 24px;
+  --venus-size: 30px;
+  --earth-size: 24px;
+  --mars-size: 19px;
+  --jupiter-size: 48px;
+  --saturn-size: 43px;
+  --uranus-size: 34px;
+  --neptune-size: 31px;
+  --moon-size: 7px;
   --mercury-orbit: 100px;
   --venus-orbit: 150px;
   --earth-orbit: 210px;
@@ -770,8 +770,8 @@ label:focus-visible {
 }
 
 .planet-image {
-  width: 100%;
-  height: 100%;
+  width: 450px;
+  height: 450px;
   background-position: center;
   background-size: cover;
 }
