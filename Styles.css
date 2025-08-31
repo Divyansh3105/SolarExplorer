@@ -79,6 +79,20 @@ body::after {
   filter: blur(0.25px);
 }
 
+/* ✨ Extra Stars Twinkle Layer */
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -2;
+  background-image: radial-gradient(2px 2px at 20% 30%, white, transparent),
+    radial-gradient(1px 1px at 60% 70%, white, transparent),
+    radial-gradient(1.5px 1.5px at 80% 20%, white, transparent),
+    radial-gradient(1px 1px at 40% 80%, white, transparent);
+  animation: twinkle 10s infinite alternate;
+  opacity: 0.8;
+}
+
 body::after {
   opacity: 0.35;
   transform: scale(1.3);
@@ -89,6 +103,16 @@ body::after {
   50% {
     transform: translateY(-6px) scale(1.02);
     opacity: 0.95;
+  }
+}
+
+/* 🪐 Planet Rotation Animations */
+@keyframes planet-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
 
@@ -376,13 +400,40 @@ label:focus-visible {
   border-radius: 50%;
   position: relative;
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5);
-  transition: transform 0.3s ease;
+  /* MODIFIED: Added box-shadow transition for a smoother hover glow effect */
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.planet {
+  border-radius: 50%;
+  position: relative;
+  transform-style: preserve-3d;
+  background-size: 200% auto;
+  background-position: center;
+  background-repeat: repeat-x;
+  box-shadow: inset -15px -15px 30px rgba(0, 0, 0, 0.6),
+    inset 15px 15px 20px rgba(255, 255, 255, 0.2), 0 0 25px rgba(0, 0, 0, 0.5);
+}
+
+.planet::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle at 25% 25%,
+    rgba(255, 255, 255, 0.3),
+    transparent 70%
+  );
+  pointer-events: none;
 }
 
 .planet-wrapper-link:hover .planet,
 .planet-wrapper-link:hover .sun {
   transform: scale(1.2);
   z-index: 50;
+  box-shadow: 0 0 25px rgba(109, 227, 255, 0.6),
+    inset 0 0 10px rgba(255, 255, 255, 0.3);
 }
 
 /* Sizing & Textures */
@@ -449,6 +500,8 @@ label:focus-visible {
   height: var(--mercury-size);
   background-image: url(Media/mercury.jpg);
   background-size: cover;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 8px #b1b1b1;
 }
 
 .planet-venus {
@@ -456,6 +509,8 @@ label:focus-visible {
   height: var(--venus-size);
   background-image: url(Media/venus.jpg);
   background-size: cover;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 12px #f8c25d;
 }
 
 .planet-earth {
@@ -463,6 +518,10 @@ label:focus-visible {
   height: var(--earth-size);
   background-image: url(Media/earth.jpg);
   background-size: cover;
+  animation: texture-spin 12s linear infinite;
+  transform: rotateZ(23.5deg);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 15px #6fa1d1;
 }
 
 .moon {
@@ -473,6 +532,8 @@ label:focus-visible {
   height: var(--moon-size);
   background-image: url(Media/moon.jpg);
   background-size: cover;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.5), inset 0 0 5px rgba(0, 0, 0, 0.5),
+    0 0 5px #bbb;
   border-radius: 50%;
   animation: moon-orbit 2.73s linear infinite;
 }
@@ -482,6 +543,10 @@ label:focus-visible {
   height: var(--mars-size);
   background-image: url(Media/mars.jpg);
   background-size: cover;
+  animation: texture-spin 15s linear infinite;
+  transform: rotateZ(25deg);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 10px #c1440e;
 }
 
 .planet-jupiter {
@@ -489,6 +554,10 @@ label:focus-visible {
   height: var(--jupiter-size);
   background-image: url(Media/jupiter.jpg);
   background-size: cover;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 20px #e0c9a6;
+  animation: texture-spin 20s linear infinite;
+  transform: rotateZ(3deg);
 }
 
 .planet-saturn {
@@ -497,6 +566,10 @@ label:focus-visible {
   background-image: url(Media/saturn.jpg);
   background-size: cover;
   position: relative;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 18px #f3e5ab;
+  animation: texture-spin 18s linear infinite;
+  transform: rotateZ(27deg);
 }
 
 .saturn-rings {
@@ -505,10 +578,10 @@ label:focus-visible {
   border-radius: 50%;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%) rotateX(75deg);
   pointer-events: none;
   width: 160%;
   height: 160%;
+  animation: ring-spin 35s linear infinite;
 }
 
 .planet-uranus {
@@ -516,6 +589,10 @@ label:focus-visible {
   height: var(--uranus-size);
   background-image: url(Media/uranus.jpg);
   background-size: cover;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 15px #a4d8e8;
+  animation: texture-spin 22s linear infinite;
+  transform: rotateZ(98deg);
 }
 
 .planet-neptune {
@@ -523,6 +600,34 @@ label:focus-visible {
   height: var(--neptune-size);
   background-image: url(Media/neptune.jpg);
   background-size: cover;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.5), inset 0 0 10px rgba(0, 0, 0, 0.5),
+    0 0 15px #5b87e8;
+  animation: texture-spin 20s linear infinite;
+  transform: rotateZ(28deg);
+}
+
+/* 💡 Tooltip Facts */
+.planet::after,
+.sun::after {
+  content: attr(data-info);
+  position: absolute;
+  bottom: 150%;
+  left: 50%;
+  transform: translateX(-50%);
+  background: rgba(0, 0, 0, 0.75);
+  color: #fff;
+  padding: 4px 8px;
+  border-radius: 6px;
+  font-size: 0.7rem;
+  opacity: 0;
+  transition: opacity 0.3s;
+  white-space: nowrap;
+  pointer-events: none;
+}
+
+.planet-wrapper-link:hover .planet::after,
+.planet-wrapper-link:hover .sun::after {
+  opacity: 1;
 }
 
 .planet-container-mercury {
@@ -650,6 +755,25 @@ label:focus-visible {
 @keyframes sun-glow {
   50% {
     box-shadow: 0 0 50px #f97316, 0 0 80px #f59e0b;
+  }
+}
+
+@keyframes texture-spin {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: 100% 0;
+  }
+}
+
+/* ADDED: Keyframes for Saturn's rings to spin independently while maintaining their tilt */
+@keyframes ring-spin {
+  from {
+    transform: translate(-50%, -50%) rotateX(75deg) rotateZ(0deg);
+  }
+  to {
+    transform: translate(-50%, -50%) rotateX(75deg) rotateZ(360deg);
   }
 }
 

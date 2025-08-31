@@ -15,10 +15,10 @@
         rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="Styles.css">
-
 </head>
 
 <body>
+    <!-- navigation toggles -->
     <input type="checkbox" id="nav-toggle" class="nav-toggle">
     <input type="checkbox" id="sun-toggle" class="modal-toggle" />
     <input type="checkbox" id="mercury-toggle" class="modal-toggle" />
@@ -30,6 +30,7 @@
     <input type="checkbox" id="uranus-toggle" class="modal-toggle" />
     <input type="checkbox" id="neptune-toggle" class="modal-toggle" />
 
+    <!-- header -->
     <header class="main-header">
         <div class="container header-inner">
             <a href="#top" class="header-brand">
@@ -39,8 +40,7 @@
                     <p>Advanced Space Platform</p>
                 </div>
             </a>
-            <label for="nav-toggle" class="nav-toggle-label">
-            </label>
+            <label for="nav-toggle" class="nav-toggle-label"></label>
             <nav class="main-nav-links" aria-label="Main Navigation">
                 <a href="#discoveries">Discoveries</a>
                 <a href="#solar-system">Solar System</a>
@@ -48,6 +48,7 @@
         </div>
     </header>
 
+    <!-- hero -->
     <main>
         <header class="static-hero" id="top">
             <div class="hero-bg"></div>
@@ -64,9 +65,11 @@
             </div>
         </header>
 
+        <!-- solar system -->
         <section class="interactive-hero" id="solar-system">
             <div class="solar-system-container">
                 <div class="solar-system-content">
+                    <!-- Orbits -->
                     <div class="orbit-path orbit-mercury"></div>
                     <div class="orbit-path orbit-venus"></div>
                     <div class="orbit-path orbit-earth"></div>
@@ -76,49 +79,68 @@
                     <div class="orbit-path orbit-uranus"></div>
                     <div class="orbit-path orbit-neptune"></div>
 
+                    <!-- Sun -->
                     <label for="sun-toggle" class="planet-wrapper-link" aria-label="Show Sun details">
-                        <div class="sun"></div>
+                        <div class="sun" data-info="☀ Sun: Our star"></div>
                     </label>
-                    <div class="planet-container planet-container-mercury"><label for="mercury-toggle"
-                            class="planet-wrapper-link" aria-label="Show Mercury details">
-                            <div class="planet planet-mercury"></div>
-                        </label></div>
-                    <div class="planet-container planet-container-venus"><label for="venus-toggle"
-                            class="planet-wrapper-link" aria-label="Show Venus details">
-                            <div class="planet planet-venus"></div>
-                        </label></div>
-                    <div class="planet-container planet-container-earth"><label for="earth-toggle"
-                            class="planet-wrapper-link" aria-label="Show Earth details">
-                            <div class="planet planet-earth">
+
+                    <!-- Planets -->
+                    <div class="planet-container planet-container-mercury">
+                        <label for="mercury-toggle" class="planet-wrapper-link" aria-label="Show Mercury details">
+                            <div class="planet planet-mercury" data-info="☿ Mercury: Smallest planet"></div>
+                        </label>
+                    </div>
+
+                    <div class="planet-container planet-container-venus">
+                        <label for="venus-toggle" class="planet-wrapper-link" aria-label="Show Venus details">
+                            <div class="planet planet-venus" data-info="♀ Venus: Hottest planet"></div>
+                        </label>
+                    </div>
+
+                    <div class="planet-container planet-container-earth">
+                        <label for="earth-toggle" class="planet-wrapper-link" aria-label="Show Earth details">
+                            <div class="planet planet-earth" data-info="🌍 Earth: Our home">
                                 <div class="moon"></div>
                             </div>
-                        </label></div>
-                    <div class="planet-container planet-container-mars"><label for="mars-toggle"
-                            class="planet-wrapper-link" aria-label="Show Mars details">
-                            <div class="planet planet-mars"></div>
-                        </label></div>
-                    <div class="planet-container planet-container-jupiter"><label for="jupiter-toggle"
-                            class="planet-wrapper-link" aria-label="Show Jupiter details">
-                            <div class="planet planet-jupiter"></div>
-                        </label></div>
-                    <div class="planet-container planet-container-saturn"><label for="saturn-toggle"
-                            class="planet-wrapper-link" aria-label="Show Saturn details">
-                            <div class="planet planet-saturn">
+                        </label>
+                    </div>
+
+                    <div class="planet-container planet-container-mars">
+                        <label for="mars-toggle" class="planet-wrapper-link" aria-label="Show Mars details">
+                            <div class="planet planet-mars" data-info="♂ Mars: The Red Planet"></div>
+                        </label>
+                    </div>
+
+                    <div class="planet-container planet-container-jupiter">
+                        <label for="jupiter-toggle" class="planet-wrapper-link" aria-label="Show Jupiter details">
+                            <div class="planet planet-jupiter" data-info="♃ Jupiter: Gas Giant"></div>
+                        </label>
+                    </div>
+
+                    <div class="planet-container planet-container-saturn">
+                        <label for="saturn-toggle" class="planet-wrapper-link" aria-label="Show Saturn details">
+                            <div class="planet planet-saturn" data-info="♄ Saturn: With rings">
                                 <div class="saturn-rings"></div>
                             </div>
-                        </label></div>
-                    <div class="planet-container planet-container-uranus"><label for="uranus-toggle"
-                            class="planet-wrapper-link" aria-label="Show Uranus details">
-                            <div class="planet planet-uranus"></div>
-                        </label></div>
-                    <div class="planet-container planet-container-neptune"><label for="neptune-toggle"
-                            class="planet-wrapper-link" aria-label="Show Neptune details">
-                            <div class="planet planet-neptune"></div>
-                        </label></div>
+                        </label>
+                    </div>
+
+                    <div class="planet-container planet-container-uranus">
+                        <label for="uranus-toggle" class="planet-wrapper-link" aria-label="Show Uranus details">
+                            <div class="planet planet-uranus" data-info="⛢ Uranus: Tilted orbit"></div>
+                        </label>
+                    </div>
+
+                    <div class="planet-container planet-container-neptune">
+                        <label for="neptune-toggle" class="planet-wrapper-link" aria-label="Show Neptune details">
+                            <div class="planet planet-neptune" data-info="♆ Neptune: Windy planet"></div>
+                        </label>
+                    </div>
                 </div>
             </div>
         </section>
 
+        <!-- discoveries section (unchanged) -->
         <section id="discoveries" class="discoveries-section">
             <div class="container">
                 <div class="section-header">
