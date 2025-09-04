@@ -9,11 +9,22 @@
     <meta name="description"
         content="An interactive journey through our solar system, with a hero introduction and planet details revealed in elegant pop-up modals.">
 
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Solar System Explorer">
+    <meta property="og:description"
+        content="An interactive journey through our solar system, with a hero introduction and planet details revealed in elegant pop-up modals.">
+    <meta property="og:image" content="https://divyansh3105.github.io/Call-Of-Duty/Media/OG.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Solar System Explorer">
+
+    <!-- Link to Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap"
         rel="stylesheet">
+
+    <!-- Link to Remixicon icon from CDN -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
     <link rel="stylesheet" href="Styles.css">
 </head>
@@ -41,7 +52,6 @@
                     <p>Advanced Space Platform</p>
                 </div>
             </a>
-            <label for="nav-toggle" class="nav-toggle-label"></label>
             <nav class="main-nav-links" aria-label="Main Navigation">
                 <a href="#discoveries">Discoveries</a>
                 <a href="#solar-system">Solar System</a>
@@ -85,19 +95,22 @@
                         <div class="sun" data-info="☀ Sun: Our star"></div>
                     </label>
 
-                    <!-- Planets -->
+                    <!-- Planet Containers -->
+                    <!-- Mercury -->
                     <div class="planet-container planet-container-mercury">
                         <label for="mercury-toggle" class="planet-wrapper-link" aria-label="Show Mercury details">
                             <div class="planet planet-mercury" data-info="☿ Mercury: Smallest planet"></div>
                         </label>
                     </div>
 
+                    <!-- Venus -->
                     <div class="planet-container planet-container-venus">
                         <label for="venus-toggle" class="planet-wrapper-link" aria-label="Show Venus details">
                             <div class="planet planet-venus" data-info="♀ Venus: Hottest planet"></div>
                         </label>
                     </div>
 
+                    <!-- Earth -->
                     <div class="planet-container planet-container-earth">
                         <label for="earth-toggle" class="planet-wrapper-link" aria-label="Show Earth details">
                             <div class="planet planet-earth" data-info="🌍 Earth: Our home">
@@ -106,18 +119,21 @@
                         </label>
                     </div>
 
+                    <!-- Mars -->
                     <div class="planet-container planet-container-mars">
                         <label for="mars-toggle" class="planet-wrapper-link" aria-label="Show Mars details">
                             <div class="planet planet-mars" data-info="♂ Mars: The Red Planet"></div>
                         </label>
                     </div>
 
+                    <!-- Jupiter -->
                     <div class="planet-container planet-container-jupiter">
                         <label for="jupiter-toggle" class="planet-wrapper-link" aria-label="Show Jupiter details">
                             <div class="planet planet-jupiter" data-info="♃ Jupiter: Gas Giant"></div>
                         </label>
                     </div>
 
+                    <!-- Saturn -->
                     <div class="planet-container planet-container-saturn">
                         <label for="saturn-toggle" class="planet-wrapper-link" aria-label="Show Saturn details">
                             <div class="planet planet-saturn" data-info="♄ Saturn: With rings">
@@ -126,12 +142,14 @@
                         </label>
                     </div>
 
+                    <!-- Uranus -->
                     <div class="planet-container planet-container-uranus">
                         <label for="uranus-toggle" class="planet-wrapper-link" aria-label="Show Uranus details">
                             <div class="planet planet-uranus" data-info="⛢ Uranus: Tilted orbit"></div>
                         </label>
                     </div>
 
+                    <!-- Neptune -->
                     <div class="planet-container planet-container-neptune">
                         <label for="neptune-toggle" class="planet-wrapper-link" aria-label="Show Neptune details">
                             <div class="planet planet-neptune" data-info="♆ Neptune: Windy planet"></div>
@@ -144,12 +162,14 @@
         <!-- discoveries section -->
         <section id="discoveries" class="discoveries-section">
             <div class="container">
+                <!-- Discoveries -->
                 <div class="section-header">
                     <div class="eyebrow"><i class="ri-lightbulb-flash-line"></i> Scientific Insights</div>
                     <h2 class="accent-gradient-text">Cosmic Discoveries</h2>
                     <p>Explore mind-blowing facts about our solar system that showcase the incredible scale and wonder
                         of space.</p>
                 </div>
+
                 <div class="discoveries-grid">
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-flashlight-line"></i></div>
@@ -157,36 +177,42 @@
                         <p>Light from the Sun travels 149.6 million km to reach Earth in just 8 minutes and 20 seconds.
                         </p>
                     </div>
+
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-scales-line"></i></div>
                         <h3>Stellar Scale</h3>
                         <p>The Sun contains 99.86% of all mass in our solar system. You could fit 1.3 million Earths
                             inside it.</p>
                     </div>
+
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-shining-2-line"></i></div>
                         <h3>Diamond Rain</h3>
                         <p>Extreme pressure on Neptune and Uranus is thought to compress carbon into literal diamond
                             rain.</p>
                     </div>
+
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-fire-line"></i></div>
                         <h3>Venusian Greenhouse</h3>
                         <p>Venus maintains a surface temperature of 464°C, making it hotter than Mercury due to a
                             runaway greenhouse effect.</p>
                     </div>
+
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-cloud-windy-line"></i></div>
                         <h3>Eternal Storm</h3>
                         <p>Jupiter's Great Red Spot is a storm larger than Earth that has been raging for over 350
                             years.</p>
                     </div>
+
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-bubble-chart-line"></i></div>
                         <h3>Floating Giant</h3>
                         <p>Saturn's density is so low (0.687 g/cm³) that it would float in a large enough body of water.
                         </p>
                     </div>
+
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-arrow-up-circle-line"></i></div>
                         <h3>Martian Giant</h3>
@@ -194,6 +220,7 @@
                             standing nearly three
                             times the height of Mount Everest.</p>
                     </div>
+
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-star-line"></i></div>
                         <h3>Cosmic Snowballs</h3>
@@ -201,6 +228,7 @@
                             thought to be the
                             origin of most long-period comets.</p>
                     </div>
+
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-grid-line"></i></div>
                         <h3>A Fractured Moon</h3>
@@ -213,12 +241,15 @@
         </section>
     </main>
 
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
             <p>© 2025 SolarExplorer. Exploring the cosmos with cutting-edge technology.</p>
         </div>
     </footer>
 
+    <!-- Modals -->
+    <!-- Sun Modal -->
     <div id="sun-modal" class="modal-container">
         <label for="sun-toggle" class="modal-backdrop"></label>
         <div class="modal-content">
@@ -253,6 +284,7 @@
         </div>
     </div>
 
+    <!-- Mercury Modal -->
     <div id="mercury-modal" class="modal-container">
         <label for="mercury-toggle" class="modal-backdrop"></label>
         <div class="modal-content">
@@ -287,6 +319,7 @@
         </div>
     </div>
 
+    <!-- Venus Modal -->
     <div id="venus-modal" class="modal-container">
         <label for="venus-toggle" class="modal-backdrop"></label>
         <div class="modal-content">
@@ -321,6 +354,7 @@
         </div>
     </div>
 
+    <!-- Earth Modal -->
     <div id="earth-modal" class="modal-container">
         <label for="earth-toggle" class="modal-backdrop"></label>
         <div class="modal-content">
@@ -355,6 +389,7 @@
         </div>
     </div>
 
+    <!-- Mars Modal -->
     <div id="mars-modal" class="modal-container">
         <label for="mars-toggle" class="modal-backdrop"></label>
         <div class="modal-content">
@@ -389,6 +424,7 @@
         </div>
     </div>
 
+    <!-- Jupiter Modal -->
     <div id="jupiter-modal" class="modal-container">
         <label for="jupiter-toggle" class="modal-backdrop"></label>
         <div class="modal-content">
@@ -423,6 +459,7 @@
         </div>
     </div>
 
+    <!-- Saturn Modal -->
     <div id="saturn-modal" class="modal-container">
         <label for="saturn-toggle" class="modal-backdrop"></label>
         <div class="modal-content">
@@ -457,6 +494,7 @@
         </div>
     </div>
 
+    <!-- Uranus Modal -->
     <div id="uranus-modal" class="modal-container">
         <label for="uranus-toggle" class="modal-backdrop"></label>
         <div class="modal-content">
@@ -491,6 +529,7 @@
         </div>
     </div>
 
+    <!-- Neptune Modal -->
     <div id="neptune-modal" class="modal-container">
         <label for="neptune-toggle" class="modal-backdrop"></label>
         <div class="modal-content">
