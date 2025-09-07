@@ -13,6 +13,8 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  cursor: url("Media/Space.cur"), auto;
+  scroll-behavior: smooth;
 }
 
 body {
