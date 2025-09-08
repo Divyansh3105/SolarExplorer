@@ -652,7 +652,7 @@ label:focus-visible {
   position: absolute;
   bottom: 150%;
   left: 50%;
-  transform: translateX(-50%);
+  transform: translateX(-50%) translateY(0) rotate(0deg);
   background: rgba(0, 0, 0, 0.75);
   color: #fff;
   padding: 4px 8px;
@@ -667,6 +667,17 @@ label:focus-visible {
 .planet:hover::after,
 .sun:hover::after {
   opacity: 1;
+}
+
+.planet,
+.sun {
+  transform-style: preserve-3d;
+}
+
+.planet::after,
+.sun::after {
+  transform-origin: center;
+  pointer-events: none;
 }
 
 @keyframes sun-glow {
