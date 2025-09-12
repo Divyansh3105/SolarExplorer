@@ -1,10 +1,10 @@
 :root {
-  --bg-900: #03040a;
-  --bg-800: #0b1020;
-  --accent: #6de3ff;
-  --accent-2: #9b7bff;
-  --muted: #a9b2c7;
-  --glass: rgba(255, 255, 255, 0.06);
+  --bg-900: #0a0f1c; /* darkest space */
+  --bg-800: #10182a; /* deep navy */
+  --accent: #4fc3f7; /* ocean blue */
+  --accent-2: #81c784; /* earth green */
+  --muted: #a0aec0; /* gray-blue text */
+  --glass: rgba(255, 255, 255, 0.05);
   --radius: 16px;
   --max-width: 1100px;
 }
@@ -24,6 +24,103 @@ body {
   line-height: 1.6;
 }
 
+#vanta-bg,
+#stars,
+#halo,
+#earth-particles,
+#earth {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#vanta-bg {
+  z-index: -5;
+}
+
+#stars {
+  z-index: -4;
+}
+
+#halo {
+  z-index: -3;
+}
+
+#earth-particles {
+  z-index: -2;
+}
+
+#earth {
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.globe {
+  width: 600px;
+  height: 600px;
+  border-radius: 50%;
+  background: url(../Media/earth.jpg);
+  background-size: cover;
+  animation: spin 240s linear infinite;
+  position: relative;
+  box-shadow: inset -30px 0 50px rgba(0, 0, 0, 0.6),
+    0 0 80px rgba(79, 195, 247, 0.6);
+}
+
+/* Cloud layer */
+.globe::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  background: url(../Media/earth\ clouds.jpg);
+  background-size: cover;
+  opacity: 0.35;
+  animation: spinClouds 360s linear infinite;
+}
+
+/* Glow around Earth */
+.globe::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(79, 195, 247, 0.25),
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+@keyframes spin {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+
+@keyframes spinClouds {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -100% 0;
+  }
+}
+
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -41,7 +138,7 @@ h2 {
   font-size: 2rem;
   margin-bottom: 24px;
   padding-left: 16px;
-  border-left: 4px solid var(--accent-2);
+  border-left: 4px solid var(--accent-2); /* green highlight */
 }
 
 p {
@@ -119,34 +216,32 @@ a {
   display: flex;
   align-items: flex-end;
   position: relative;
-  background-size: cover;
-  background-position: center;
+  background: transparent;
 }
 
 .planet-hero::after {
   content: "";
   position: absolute;
   inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 16, 32, 0) 50%,
-    rgba(11, 16, 32, 1) 100%
-  );
+  pointer-events: none;
 }
 
 .hero-content {
   position: relative;
   z-index: 2;
+  text-align: left;
 }
 
 .planet-tag {
   display: inline-block;
   padding: 4px 12px;
-  background-color: var(--glass);
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
   border-radius: 99px;
   font-size: 0.9rem;
   font-weight: 600;
   margin-bottom: 16px;
+  color: var(--bg-900);
+  box-shadow: 0 0 10px rgba(79, 195, 247, 0.5);
 }
 
 .planet-hero h1 {
@@ -154,7 +249,26 @@ a {
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 16px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-2),
+    var(--accent)
+  );
+  background-size: 200% auto; /* ✅ allows shimmer */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(79, 195, 247, 0.4);
+  animation: shimmer 6s linear infinite; /* ✅ shimmer effect */
+}
+
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
 }
 
 .hero-content p {
@@ -165,7 +279,6 @@ a {
 
 .planet-info {
   padding: 40px 0 80px;
-  background-image: url(../Media/stars_milky_way.jpg);
 }
 
 .stats-grid {
@@ -206,18 +319,39 @@ a {
 
 .structure-section {
   margin-bottom: 60px;
+  padding: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(79, 195, 247, 0.05),
+    rgba(129, 199, 132, 0.05)
+  );
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: var(--radius);
+  box-shadow: 0 0 20px rgba(79, 195, 247, 0.15);
+}
+
+.structure-section h2 {
+  font-size: 2rem;
+  margin-bottom: 16px;
+  padding-left: 16px;
+  border-left: 4px solid var(--accent); /* ocean blue */
+  color: var(--accent); /* matches Earth's oceans */
+  display: flex;
+  align-items: center;
+  gap: 8px;
 }
 
 .structure-section p {
   color: var(--muted);
   max-width: 80ch;
+  line-height: 1.7;
 }
 
 .discoveries-section h2 {
   font-size: 2rem;
   margin-bottom: 24px;
   padding-left: 16px;
-  border-left: 4px solid var(--accent-2);
+  border-left: 4px solid var(--accent-2); /* green */
 }
 
 .discoveries-list {
@@ -253,11 +387,63 @@ a {
   font-weight: 700;
 }
 
+/* --------- Footer --------- */
+.main-footer {
+  padding: 48px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(3, 4, 10, 0.5);
+  text-align: center;
+}
+
+.main-footer p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Scrollbar Styling - Chrome, Edge, Safari */
+::-webkit-scrollbar {
+  width: 10px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-900); /* darkest background */
+}
+
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+  border-radius: 6px;
+  border: 2px solid var(--bg-900); /* spacing effect */
+  transition: all 0.3s ease;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-2) 0%, var(--accent) 100%);
+  box-shadow: 0 0 10px var(--accent), 0 0 15px var(--accent-2);
+}
+
+/* Scrollbar Styling - Firefox */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg-900);
+}
+
+/* Text Selection */
+::selection {
+  background: var(--accent);
+  color: var(--bg-900);
+  text-shadow: 0 0 6px var(--accent-2), 0 0 12px var(--accent);
+}
+
+::-moz-selection {
+  background: var(--accent);
+  color: var(--bg-900);
+  text-shadow: 0 0 6px var(--accent-2), 0 0 12px var(--accent);
+}
+
 @media (max-width: 768px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .main-nav-links {
     display: none;
   }

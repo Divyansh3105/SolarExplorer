@@ -627,27 +627,76 @@ label:focus-visible {
   border-radius: 50%;
 }
 
+/* tooltip base (hidden by default, upright) */
 .planet::after,
 .sun::after {
   content: attr(data-info);
   position: absolute;
-  bottom: 150%;
+  top: -36px; /* adjust vertical gap above planet */
   left: 50%;
-  transform: translateX(-50%) translateY(0) rotate(0deg);
-  background: rgba(0, 0, 0, 0.75);
+  transform: translateX(-50%); /* center horizontally */
+  transform-origin: center;
+  background: rgba(0, 0, 0, 0.85);
   color: #fff;
-  padding: 4px 8px;
+  padding: 6px 10px;
   border-radius: 6px;
-  font-size: 0.7rem;
-  opacity: 0;
-  transition: opacity 0.3s;
+  font-size: 0.75rem;
   white-space: nowrap;
+  opacity: 0;
   pointer-events: none;
+  z-index: 200;
+  transition: opacity 0.18s ease, transform 0.18s ease;
+  will-change: transform;
 }
 
+/* show on hover with a tiny slide */
 .planet:hover::after,
 .sun:hover::after {
   opacity: 1;
+  transform: translateX(-50%) translateY(-6px);
+}
+
+/* keyframes: counter-rotate the tooltip so it visually stays upright */
+@keyframes unrotate {
+  from {
+    transform: translateX(-50%) rotate(0deg);
+  }
+  to {
+    transform: translateX(-50%) rotate(-360deg);
+  }
+}
+
+/* Apply counter-rotation with the same duration as each rotator */
+/* (match these durations to the corresponding .*-rotator animation-duration) */
+
+.mercury-rotator .planet-mercury::after {
+  animation: unrotate 8.8s linear infinite;
+}
+.venus-rotator .planet-venus::after {
+  animation: unrotate 22.5s linear infinite;
+}
+.earth-rotator .planet-earth::after {
+  animation: unrotate 36.5s linear infinite;
+}
+.mars-rotator .planet-mars::after {
+  animation: unrotate 68.7s linear infinite;
+}
+.jupiter-rotator .planet-jupiter::after {
+  animation: unrotate 120s linear infinite;
+}
+.saturn-rotator .planet-saturn::after {
+  animation: unrotate 290s linear infinite;
+}
+.uranus-rotator .planet-uranus::after {
+  animation: unrotate 420s linear infinite;
+}
+.neptune-rotator .planet-neptune::after {
+  animation: unrotate 650s linear infinite;
+}
+
+/* Optional tweak: make sure the sun's label (if any) isn't animated */
+.sun::after {
+  animation: none;
 }
 
 .planet,

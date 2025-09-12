@@ -1,14 +1,15 @@
 :root {
-  --bg-900: #03040a;
-  --bg-800: #0b1020;
-  --accent: #6de3ff;
-  --accent-2: #9b7bff;
-  --muted: #a9b2c7;
-  --glass: rgba(255, 255, 255, 0.06);
+  --bg-900: #0d0f14; /* darkest space */
+  --bg-800: #12151f; /* deep space navy */
+  --accent: #c0c0c0; /* Mercury silver */
+  --accent-2: #8aaac0; /* subtle metallic-blue accent */
+  --muted: #b0b0b0; /* readable muted text */
+  --glass: rgba(192, 192, 192, 0.06);
   --radius: 16px;
   --max-width: 1100px;
 }
 
+/* Reset */
 * {
   box-sizing: border-box;
   margin: 0;
@@ -19,9 +20,78 @@
 
 body {
   font-family: "Inter", system-ui, sans-serif;
-  color: #e9f2ff;
+  color: var(--muted);
   background-color: var(--bg-800);
   line-height: 1.6;
+}
+
+#vanta-bg,
+#stars,
+#halo,
+#mercury-particles,
+#mercury {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+#vanta-bg {
+  z-index: -5;
+}
+#stars {
+  z-index: -4;
+}
+#halo {
+  z-index: -3;
+}
+#mercury-particles {
+  z-index: -2;
+}
+#mercury {
+  z-index: -1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.globe {
+  width: 550px;
+  height: 550px;
+  border-radius: 50%;
+  background: url(../Media/mercury.jpg);
+  background-size: cover;
+  animation: spin 50s linear infinite;
+  position: relative;
+  box-shadow: inset -30px 0 50px rgba(0, 0, 0, 0.7),
+    0 0 60px rgba(192, 192, 192, 0.5);
+}
+
+/* Glow */
+.globe::after {
+  content: "";
+  position: absolute;
+  top: -10%;
+  left: -10%;
+  width: 120%;
+  height: 120%;
+  border-radius: 50%;
+  background: radial-gradient(
+    circle,
+    rgba(192, 192, 192, 0.2),
+    transparent 70%
+  );
+  z-index: -1;
+}
+
+@keyframes spin {
+  from {
+    background-position: 0 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
 }
 
 .container {
@@ -34,9 +104,8 @@ h1,
 h2 {
   font-family: "Orbitron", sans-serif;
   font-weight: 700;
-  color: #fff;
+  color: var(--accent);
 }
-
 h2 {
   font-size: 2rem;
   margin-bottom: 24px;
@@ -46,6 +115,7 @@ h2 {
 
 p {
   margin-bottom: 1rem;
+  color: #e0e0e0;
 }
 
 a {
@@ -62,8 +132,8 @@ a {
   padding: 20px 0;
   background: linear-gradient(
     180deg,
-    rgba(3, 4, 10, 0.7) 0%,
-    rgba(3, 4, 10, 0) 100%
+    rgba(13, 15, 20, 0.7) 0%,
+    rgba(13, 15, 20, 0) 100%
   );
 }
 
@@ -78,7 +148,6 @@ a {
   align-items: center;
   gap: 12px;
 }
-
 .header-brand .logo-icon {
   width: 40px;
   height: 40px;
@@ -87,12 +156,10 @@ a {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   border-radius: 12px;
 }
-
 .header-brand .logo-icon i {
   font-size: 22px;
   color: var(--bg-900);
 }
-
 .header-brand .brand-text h1 {
   font-size: 1.2rem;
   margin: 0;
@@ -100,17 +167,16 @@ a {
 
 .main-nav-links a {
   padding: 8px 16px;
-  color: #fff;
+  color: var(--accent);
   font-weight: 600;
-  border: 1px solid rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(192, 192, 192, 0.2);
   border-radius: 99px;
   transition: all 0.2s ease;
   backdrop-filter: blur(5px);
 }
-
 .main-nav-links a:hover {
-  background-color: rgba(255, 255, 255, 0.1);
-  border-color: rgba(255, 255, 255, 0.4);
+  background-color: rgba(192, 192, 192, 0.1);
+  border-color: rgba(192, 192, 192, 0.4);
 }
 
 .planet-hero {
@@ -119,53 +185,44 @@ a {
   display: flex;
   align-items: flex-end;
   position: relative;
-  background-size: cover;
-  background-position: center;
+  background: transparent;
 }
-
-.planet-hero::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(
-    180deg,
-    rgba(11, 16, 32, 0) 50%,
-    rgba(11, 16, 32, 1) 100%
-  );
-}
-
-.hero-content {
-  position: relative;
-  z-index: 2;
-}
-
-.planet-tag {
-  display: inline-block;
-  padding: 4px 12px;
-  background-color: var(--glass);
-  border-radius: 99px;
-  font-size: 0.9rem;
-  font-weight: 600;
-  margin-bottom: 16px;
-}
-
 .planet-hero h1 {
   font-size: clamp(3rem, 8vw, 5.5rem);
   font-weight: 900;
   line-height: 1.1;
   margin-bottom: 16px;
-  text-shadow: 0 4px 20px rgba(0, 0, 0, 0.4);
+  background: linear-gradient(
+    90deg,
+    var(--accent),
+    var(--accent-2),
+    var(--accent)
+  );
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 20px rgba(192, 192, 192, 0.4);
+  animation: shimmer 6s linear infinite;
+}
+@keyframes shimmer {
+  0% {
+    background-position: 200% center;
+  }
+  100% {
+    background-position: -200% center;
+  }
 }
 
-.hero-content p {
-  font-size: 1.1rem;
-  color: var(--muted);
-  max-width: 60ch;
-}
-
-.planet-info {
-  padding: 40px 0 80px;
-  background-image: url(../Media/stars_milky_way.jpg);
+.planet-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: linear-gradient(135deg, var(--accent), var(--accent-2));
+  border-radius: 99px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  margin-bottom: 16px;
+  color: var(--bg-900);
+  box-shadow: 0 0 10px rgba(192, 192, 192, 0.5);
 }
 
 .stats-grid {
@@ -174,49 +231,43 @@ a {
   gap: 24px;
   margin-bottom: 60px;
 }
-
 .stat-card {
   background: var(--bg-900);
   padding: 24px;
   border-radius: var(--radius);
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(192, 192, 192, 0.05);
 }
-
 .stat-card .icon {
   font-size: 24px;
   color: var(--accent);
   margin-bottom: 12px;
 }
-
 .stat-card h3 {
   font-size: 0.9rem;
   color: var(--muted);
-  font-family: "Inter";
   font-weight: 600;
   text-transform: uppercase;
-  letter-spacing: 0.5px;
   margin-bottom: 4px;
 }
-
 .stat-card p {
   font-size: 1.25rem;
-  color: #fff;
+  color: var(--accent-2);
   font-weight: 600;
 }
 
 .structure-section {
   margin-bottom: 60px;
+  padding: 24px;
+  background: linear-gradient(
+    135deg,
+    rgba(192, 192, 192, 0.05),
+    rgba(138, 170, 192, 0.05)
+  );
+  border: 1px solid rgba(192, 192, 192, 0.05);
+  border-radius: var(--radius);
 }
-
-.structure-section p {
-  color: var(--muted);
-  max-width: 80ch;
-}
-
-.discoveries-section h2 {
-  font-size: 2rem;
-  margin-bottom: 24px;
-  padding-left: 16px;
+.structure-section h2 {
+  color: var(--accent-2);
   border-left: 4px solid var(--accent-2);
 }
 
@@ -232,7 +283,7 @@ a {
   margin-bottom: 16px;
   position: relative;
   font-size: 1.05rem;
-  border: 1px solid rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(192, 192, 192, 0.05);
 }
 
 .discovery-item::before {
@@ -253,16 +304,62 @@ a {
   font-weight: 700;
 }
 
+/* --------- Footer --------- */
+.main-footer {
+  padding: 18px 0;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  background: rgba(3, 4, 10, 0.5);
+  text-align: center;
+}
+
+.main-footer p {
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* Scrollbar */
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: var(--bg-900);
+}
+::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, var(--accent) 0%, var(--accent-2) 100%);
+  border-radius: 6px;
+  border: 2px solid var(--bg-900);
+  transition: all 0.3s ease;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, var(--accent-2) 0%, var(--accent) 100%);
+  box-shadow: 0 0 10px var(--accent), 0 0 15px var(--accent-2);
+}
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--accent) var(--bg-900);
+}
+
+/* Text Selection */
+::selection {
+  background: var(--accent);
+  color: var(--bg-900);
+  text-shadow: 0 0 6px var(--accent-2), 0 0 12px var(--accent);
+}
+::-moz-selection {
+  background: var(--accent);
+  color: var(--bg-900);
+  text-shadow: 0 0 6px var(--accent-2), 0 0 12px var(--accent);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
   .stats-grid {
     grid-template-columns: repeat(2, 1fr);
   }
-
   .main-nav-links {
     display: none;
   }
 }
-
 @media (max-width: 500px) {
   .stats-grid {
     grid-template-columns: 1fr;
