@@ -46,6 +46,8 @@
 
 html {
   scroll-behavior: smooth;
+  -webkit-overflow-scrolling: touch;
+  scroll-behavior: auto; /* prevents jank */
   overflow-x: hidden;
 }
 
@@ -1101,6 +1103,22 @@ label:focus-visible {
 
 /* Phones (≤768px) */
 @media (max-width: 768px) {
+  /* Reduce particle (stars) intensity */
+  #tsparticles {
+    opacity: 0.6;
+  }
+
+  /* Replace heavy blur with solid background */
+  .main-header {
+    background: rgba(3, 4, 10, 0.85) !important;
+    backdrop-filter: none !important;
+  }
+
+  .modal-container {
+    backdrop-filter: none !important;
+    background: rgba(3, 4, 10, 0.85) !important;
+  }
+
   .title {
     font-size: clamp(1.8rem, 5vw, 3rem);
   }
