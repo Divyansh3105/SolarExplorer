@@ -6,16 +6,48 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SolarExplorer - Saturn</title>
     <meta name="description" content="Detailed information and scientific discoveries about Saturn, the ringed giant.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap"
         rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!-- Remix icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <!-- Three.js (needed for Vanta.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <!-- Vanta.js Fog -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js"></script>
+
+    <!-- Stylesheet -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+    <!-- Background layers -->
+    <div id="vanta-bg"></div>
+    <div id="stars"></div>
+    <div id="halo"></div>
+
+    <!-- Saturn -->
+    <div id="saturn">
+        <div class="planet-wrapper">
+            <div class="rings"></div>
+            <div class="rings"></div>
+            <div class="rings"></div>
+            <div class="globe"></div>
+        </div>
+    </div>
+
     <header class="main-header">
         <div class="container header-inner">
             <a href="../index.html#top" class="header-brand">
@@ -31,7 +63,7 @@
     </header>
 
     <main>
-        <section class="planet-hero" style="background-image: url(../Media/saturn-details.jpeg);">
+        <section class="planet-hero">
             <div class="container hero-content">
                 <span class="planet-tag"><i class="ri-bubble-chart-line"></i> Gas Giant</span>
                 <h1>Saturn</h1>
@@ -110,6 +142,75 @@
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 SolarExplorer. Exploring the cosmos with cutting-edge technology.</p>
+        </div>
+
+        <div style="font-size:1.4em; margin:10px 0; opacity:0.8;">
+            ✨ ⭐ ✨
+        </div>
+
+        <div>
+            <a href="https://github.com/Divyansh3105" target="_blank" aria-label="GitHub"
+                style="color:#fff; margin:0 12px; font-size:1.5rem; text-decoration:none; transition:color 0.3s;">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/divyanshgarg3105/" target="_blank" aria-label="LinkedIn"
+                style="color:#fff; margin:0 12px; font-size:1.5rem; text-decoration:none; transition:color 0.3s;">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        VANTA.FOG({
+            el: "#vanta-bg",
+            highlightColor: 0xffe082,
+            midtoneColor: 0xffd54f,
+            lowlightColor: 0x3e2723,
+            baseColor: 0x000000,
+            blurFactor: 0.7,
+            speed: 0.9
+        });
+
+        tsParticles.load("stars", {
+            background: { color: "transparent" },
+            fpsLimit: 60,
+            particles: {
+                number: { value: 300 },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.7, random: true },
+                size: { value: { min: 1, max: 2 } },
+                move: { enable: true, speed: 0.2 }
+            }
+        });
+
+        tsParticles.load("halo", {
+            background: { color: "transparent" },
+            fpsLimit: 60,
+            particles: {
+                number: { value: 100 },
+                shape: { type: "circle" },
+                color: { value: "#fff176" },
+                size: { value: { min: 2, max: 3 } },
+                opacity: { value: 0.25, random: true },
+                move: { enable: true, speed: 0.05 }
+            },
+            polygon: {
+                enable: true,
+                type: "inline",
+                url: "https://particles.js.org/images/svg/circle.svg",
+                scale: 1.0,
+                position: { x: 50, y: 50 },
+                inline: { arrangement: "equidistant" }
+            }
+        });
+    </script>
 </body>
 
 </html>

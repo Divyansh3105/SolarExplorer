@@ -13,7 +13,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  cursor: url("Media/Space.cur"), auto;
+  cursor: url(../Media/Space.cur), auto;
   scroll-behavior: smooth;
 }
 
@@ -326,6 +326,7 @@ a {
     rgba(129, 199, 132, 0.05)
   );
   border: 1px solid rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(5px); /* ✅ subtle blur */
   border-radius: var(--radius);
   box-shadow: 0 0 20px rgba(79, 195, 247, 0.15);
 }

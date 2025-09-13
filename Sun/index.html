@@ -9,16 +9,40 @@
     <title>SolarExplorer - The Sun</title>
     <meta name="description"
         content="Detailed information and scientific discoveries about the Sun, the star at the center of our solar system.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap"
         rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!-- Remix icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <!-- Three.js (needed for Vanta.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <!-- Vanta.js Fog -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js"></script>
+
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+    <div id="vanta-bg"></div>
+    <div id="stars"></div>
+    <div id="halo"></div>
+    <div id="sun-particles"></div>
+    <div id="sun">
+        <div class="globe"></div>
+    </div>
+
     <header class="main-header">
         <div class="container header-inner">
             <a href="../index.html#top" class="header-brand">
@@ -33,7 +57,7 @@
         </div>
     </header>
     <main>
-        <section class="planet-hero" style="background-image: url(../Media/sun-details.jpeg);">
+        <section class="planet-hero">
             <div class="container hero-content">
                 <span class="planet-tag"><i class="ri-sun-line"></i> Yellow Dwarf</span>
                 <h1>The Sun</h1>
@@ -132,11 +156,100 @@
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
     <footer class="main-footer">
         <div class="container">
-            <p>© 2025 SolarExplorer. All rights reserved.</p>
+            <p>© 2025 SolarExplorer. Exploring the cosmos with cutting-edge technology.</p>
+        </div>
+
+        <div style="font-size:1.4em; margin:10px 0; opacity:0.8;">
+            ✨ ⭐ ✨
+        </div>
+
+        <div>
+            <a href="https://github.com/Divyansh3105" target="_blank" aria-label="GitHub"
+                style="color:#fff; margin:0 12px; font-size:1.5rem; text-decoration:none; transition:color 0.3s;">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/divyanshgarg3105/" target="_blank" aria-label="LinkedIn"
+                style="color:#fff; margin:0 12px; font-size:1.5rem; text-decoration:none; transition:color 0.3s;">
+                <i class="fab fa-linkedin"></i>
+            </a>
         </div>
     </footer>
+
+    <script>
+        /* Fog background with fiery tones */
+        VANTA.FOG({
+            el: "#vanta-bg",
+            highlightColor: 0xffc107,   // golden yellow
+            midtoneColor: 0xff9800,     // deep orange
+            lowlightColor: 0xbf360c,    // reddish brown
+            baseColor: 0x000000,
+            blurFactor: 0.7,
+            speed: 0.7
+        });
+
+        /* Stars behind */
+        tsParticles.load("stars", {
+            background: { color: "transparent" },
+            fpsLimit: 60,
+            particles: {
+                number: { value: 250 },
+                color: { value: "#ffffff" },
+                shape: { type: "circle" },
+                opacity: { value: 0.6, random: true },
+                size: { value: { min: 1, max: 2 } },
+                move: { enable: true, speed: 0.2 }
+            }
+        });
+
+        /* Solar aura halo */
+        tsParticles.load("halo", {
+            background: { color: "transparent" },
+            fpsLimit: 60,
+            particles: {
+                number: { value: 150 },
+                shape: { type: "circle" },
+                color: { value: "#ff9800" },
+                size: { value: { min: 2, max: 4 } },
+                opacity: { value: 0.3, random: true },
+                move: { enable: true, speed: 0.05 }
+            },
+            polygon: {
+                enable: true,
+                type: "inline",
+                url: "https://particles.js.org/images/svg/circle.svg",
+                scale: 1.0,
+                position: { x: 50, y: 50 },
+                inline: { arrangement: "equidistant" }
+            }
+        });
+
+        /* Sun sparks / coronal particles */
+        tsParticles.load("sun-particles", {
+            background: { color: "transparent" },
+            fpsLimit: 60,
+            particles: {
+                number: { value: 200 },
+                shape: { type: "circle" },
+                color: { value: ["#ffcc80", "#ff9800", "#f44336"] },
+                size: { value: { min: 1, max: 3 } },
+                opacity: { value: 0.7 },
+                move: { enable: true, speed: 0.6, direction: "none", random: true }
+            },
+            polygon: {
+                enable: true,
+                type: "inline",
+                url: "https://particles.js.org/images/svg/circle.svg",
+                scale: 1.0,
+                position: { x: 50, y: 50 },
+                inline: { arrangement: "equidistant" }
+            }
+        });
+    </script>
 </body>
 
 </html>

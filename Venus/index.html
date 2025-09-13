@@ -7,16 +7,41 @@
     <title>SolarExplorer - Venus</title>
     <meta name="description"
         content="Detailed information and scientific discoveries about Venus, the hottest planet in our solar system.">
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <!-- font -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Orbitron:wght@500;700;900&display=swap"
         rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" />
+
+    <!-- Remix icons -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
+
+    <!-- tsParticles -->
+    <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
+
+    <!-- Three.js (needed for Vanta.js) -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
+
+    <!-- Vanta.js Fog -->
+    <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js"></script>
+
+    <!-- CSS -->
     <link rel="stylesheet" href="styles.css">
 </head>
 
 <body>
+
+    <div id="vanta-bg"></div>
+    <div id="stars"></div>
+    <div id="halo"></div>
+    <div id="venus-particles"></div>
+    <div id="venus">
+        <div class="globe"></div>
+    </div>
+
     <header class="main-header">
         <div class="container header-inner">
             <a href="../index.html#top" class="header-brand">
@@ -32,7 +57,7 @@
     </header>
 
     <main>
-        <section class="planet-hero" style="background-image: url(../Media/Venus_details.jpg);">
+        <section class="planet-hero">
             <div class="container hero-content">
                 <span class="planet-tag"><i class="ri-earth-line"></i> Terrestrial Planet</span>
                 <h1>Venus</h1>
@@ -119,6 +144,73 @@
             </div>
         </section>
     </main>
+
+    <!-- Footer -->
+    <footer class="main-footer">
+        <div class="container">
+            <p>© 2025 SolarExplorer. Exploring the cosmos with cutting-edge technology.</p>
+        </div>
+
+        <div style="font-size:1.4em; margin:10px 0; opacity:0.8;">
+            ✨ ⭐ ✨
+        </div>
+
+        <div>
+            <a href="https://github.com/Divyansh3105" target="_blank" aria-label="GitHub"
+                style="color:#fff; margin:0 12px; font-size:1.5rem; text-decoration:none; transition:color 0.3s;">
+                <i class="fab fa-github"></i>
+            </a>
+
+            <a href="https://www.linkedin.com/in/divyanshgarg3105/" target="_blank" aria-label="LinkedIn"
+                style="color:#fff; margin:0 12px; font-size:1.5rem; text-decoration:none; transition:color 0.3s;">
+                <i class="fab fa-linkedin"></i>
+            </a>
+        </div>
+    </footer>
+
+    <script>
+        VANTA.FOG({
+            el: "#vanta-bg",
+            highlightColor: 0xffb74d,
+            midtoneColor: 0xff9800,
+            lowlightColor: 0x4e342e,
+            baseColor: 0x000000,
+            blurFactor: 0.7,
+            speed: 0.9
+        });
+        tsParticles.load("stars", {
+            background: { color: "transparent" },
+            fpsLimit: 60,
+            particles: {
+                number: { value: 300 }, color: { value: "#ffffff" }, shape: { type: "circle" },
+                opacity: { value: 0.7, random: true }, size: { value: { min: 1, max: 2 } }, move: { enable: true, speed: 0.2 }
+            }
+        });
+        tsParticles.load("halo", {
+            background: { color: "transparent" },
+            fpsLimit: 60,
+            particles: {
+                number: { value: 100 }, shape: { type: "circle" }, color: { value: "#ffb74d" },
+                size: { value: { min: 2, max: 3 } }, opacity: { value: 0.25, random: true }, move: { enable: true, speed: 0.05 }
+            },
+            polygon: {
+                enable: true, type: "inline", url: "https://particles.js.org/images/svg/circle.svg",
+                scale: 1.0, position: { x: 50, y: 50 }, inline: { arrangement: "equidistant" }
+            }
+        });
+        tsParticles.load("venus-particles", {
+            background: { color: "transparent" },
+            fpsLimit: 60,
+            particles: {
+                number: { value: 200 }, shape: { type: "circle" }, color: { value: "#ffe0b2" },
+                size: { value: { min: 1, max: 2 } }, opacity: { value: 0.6 }, move: { enable: true, speed: 0.1 }
+            },
+            polygon: {
+                enable: true, type: "inline", url: "https://particles.js.org/images/svg/circle.svg",
+                scale: 0.9, position: { x: 50, y: 50 }, inline: { arrangement: "equidistant" }
+            }
+        });
+    </script>
 </body>
 
 </html>
