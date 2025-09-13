@@ -1074,3 +1074,144 @@ label:focus-visible {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: var(--bg-100);
 }
+
+/* ---------- 9. Responsive Tweaks ---------- */
+
+/* Tablets (≤1024px) */
+@media (max-width: 1024px) {
+  .modal-body .section-inner {
+    grid-template-columns: 1fr; /* stack content */
+    text-align: center;
+  }
+
+  .modal-body .section-inner.reversed {
+    grid-template-columns: 1fr; /* stack reversed also */
+  }
+
+  .planet-image {
+    max-width: 320px;
+    aspect-ratio: 1 / 1;
+  }
+
+  .discoveries-grid {
+    grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 */
+    gap: 20px;
+  }
+}
+
+/* Phones (≤768px) */
+@media (max-width: 768px) {
+  .title {
+    font-size: clamp(1.8rem, 5vw, 3rem);
+  }
+
+  .lead {
+    font-size: 0.95rem;
+    padding: 0 12px;
+  }
+
+  .main-nav-links {
+    display: none; /* optionally hide nav links */
+  }
+
+  .planet-image {
+    width: 240px;
+    height: 240px;
+  }
+
+  .discoveries-grid {
+    grid-template-columns: 1fr; /* single column */
+  }
+
+  .fact-grid {
+    grid-template-columns: 1fr; /* stack facts */
+  }
+}
+
+/* Small Phones (≤480px) */
+@media (max-width: 480px) {
+  .header-brand .brand-text h1 {
+    font-size: 1rem;
+  }
+
+  .planet-name h2 {
+    font-size: 1.8rem;
+  }
+
+  .modal-body {
+    padding: 20px;
+  }
+
+  .planet-image {
+    width: 180px;
+    height: 180px;
+  }
+
+  .cta {
+    padding: 10px 18px;
+    font-size: 0.85rem;
+  }
+}
+
+/* ----- Mobile Nav ----- */
+.menu-toggle {
+  display: none;
+}
+
+.menu-icon {
+  display: none;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 26px;
+  height: 20px;
+  cursor: pointer;
+  z-index: 101;
+}
+
+.menu-icon span {
+  display: block;
+  height: 3px;
+  background: var(--accent);
+  border-radius: 2px;
+  transition: 0.3s ease;
+}
+
+/* Show hamburger on small screens */
+@media (max-width: 768px) {
+  .menu-icon {
+    display: flex;
+  }
+
+  .main-nav-links {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    /* background: rgba(3, 4, 10, 0.95); */
+    backdrop-filter: blur(12px);
+    width: 220px;
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 100;
+  }
+
+  /* When checkbox is checked → show menu */
+  .menu-toggle:checked ~ .main-nav-links {
+    transform: translateX(0);
+  }
+
+  /* Animate hamburger into X */
+  .menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle:checked + .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
