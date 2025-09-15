@@ -6,10 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SolarExplorer | Journey Through the Cosmos</title>
 
-    <!-- Favicon  -->
+    <!-- Favicon -->
     <link rel="icon" type="image/png" href="Media/fav.png">
 
-    <!-- Meta Tag -->
+    <!-- SEO Meta Tags -->
     <meta name="title" content="SolarExplorer | Journey Through the Cosmos">
     <meta name="description"
         content="Explore the wonders of our solar system with Solar Explorers. Discover planets, moons, and cosmic phenomena in an interactive and educational experience for space enthusiasts of all ages.">
@@ -19,7 +19,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="canonical" href="https://solarexplorers.netlify.app/">
 
-    <!-- Open Graph Meta Tags -->
+    <!-- Open Graph -->
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://solarexplorers.netlify.app/">
     <meta property="og:title" content="SolarExplorer | Journey Through the Cosmos">
@@ -29,25 +29,23 @@
     <meta property="og:site_name" content="SolarExplorer">
 
 
-    <!-- Link to Google Fonts -->
+    <!-- Google Fonts -->
     <link
         href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&family=Orbitron:wght@500;700&display=swap"
         rel="stylesheet">
 
-    <!-- Font Awesome CDN -->
+    <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
 
-    <!-- tsParticles -->
+    <!-- tsParticles and Vanta.js -->
     <script src="https://cdn.jsdelivr.net/npm/tsparticles@2.12.0/tsparticles.bundle.min.js"></script>
-
-    <!-- Vanta.js + Three.js -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r134/three.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/vanta/dist/vanta.fog.min.js"></script>
 
-    <!-- Link to Remixicon icon from CDN -->
+    <!-- Remix Icon -->
     <link href="https://cdn.jsdelivr.net/npm/remixicon@4.2.0/fonts/remixicon.css" rel="stylesheet" />
 
-    <!-- Link to external CSS -->
+    <!-- Custom CSS -->
     <link rel="stylesheet" href="Styles.css">
 </head>
 
@@ -57,7 +55,7 @@
     <div id="vanta-fog"></div>
     <div id="tsparticles"></div>
 
-    <!-- navigation toggles -->
+    <!-- Planet Modals -->
     <input type="checkbox" id="sun-toggle" class="modal-toggle" />
     <input type="checkbox" id="mercury-toggle" class="modal-toggle" />
     <input type="checkbox" id="venus-toggle" class="modal-toggle" />
@@ -68,7 +66,7 @@
     <input type="checkbox" id="uranus-toggle" class="modal-toggle" />
     <input type="checkbox" id="neptune-toggle" class="modal-toggle" />
 
-    <!-- header -->
+    <!-- Header -->
     <header class="main-header">
         <div class="header-inner container">
             <div class="header-brand">
@@ -79,7 +77,7 @@
                 </div>
             </div>
 
-            <!-- Mobile Menu Toggle -->
+            <!-- Menu Toggle -->
             <input type="checkbox" id="menu-toggle" class="menu-toggle" />
             <label for="menu-toggle" class="menu-icon">
                 <span></span>
@@ -87,8 +85,9 @@
                 <span></span>
             </label>
 
-            <!-- Navigation -->
+            <!-- Navigation Links -->
             <nav class="main-nav-links">
+                <a href="#top">Home</a>
                 <a href="#solar-system">Planets</a>
                 <a href="#discoveries">Discoveries</a>
             </nav>
@@ -114,11 +113,10 @@
             </div>
         </header>
 
-        <!-- solar system -->
+        <!-- Interactive Solar System -->
         <section class="interactive-hero" id="solar-system">
             <div class="solar-system-container">
                 <div class="solar-system-content">
-                    <!-- Sun -->
                     <label for="sun-toggle" class="sun" data-info="☀ Sun: Our star"></label>
 
                     <!-- Mercury -->
@@ -137,7 +135,7 @@
                         </div>
                     </div>
 
-                    <!-- Earth -->
+                    <!-- Earth with Moon -->
                     <div class="orbit earth-orbit">
                         <div class="rotator earth-rotator">
                             <label for="earth-toggle" class="planet planet-earth" data-info="🌍 Earth: Our home">
@@ -162,7 +160,7 @@
                         </div>
                     </div>
 
-                    <!-- Saturn -->
+                    <!-- Saturn with Rings -->
                     <div class="orbit saturn-orbit">
                         <div class="rotator saturn-rotator">
                             <label for="saturn-toggle" class="planet planet-saturn" data-info="♄ Saturn: With rings">
@@ -190,10 +188,10 @@
             </div>
         </section>
 
-        <!-- discoveries section -->
+        <!-- Discoveries Section -->
         <section id="discoveries" class="discoveries-section">
             <div class="container">
-                <!-- Discoveries -->
+                <!-- Section Header -->
                 <div class="section-header">
                     <div class="eyebrow"><i class="ri-lightbulb-flash-line"></i> Scientific Insights</div>
                     <h2 class="accent-gradient-text">Cosmic Discoveries</h2>
@@ -201,7 +199,9 @@
                         of space.</p>
                 </div>
 
+                <!-- Discoveries Grid -->
                 <div class="discoveries-grid">
+                    <!-- Discovery Card -->
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-flashlight-line"></i></div>
                         <h3>Light Speed Journey</h3>
@@ -209,6 +209,7 @@
                         </p>
                     </div>
 
+                    <!-- Discovery Card -->
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-scales-line"></i></div>
                         <h3>Stellar Scale</h3>
@@ -216,6 +217,7 @@
                             inside it.</p>
                     </div>
 
+                    <!-- Discovery Card -->
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-shining-2-line"></i></div>
                         <h3>Diamond Rain</h3>
@@ -223,6 +225,7 @@
                             rain.</p>
                     </div>
 
+                    <!-- Discovery Card -->
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-fire-line"></i></div>
                         <h3>Venusian Greenhouse</h3>
@@ -230,6 +233,7 @@
                             runaway greenhouse effect.</p>
                     </div>
 
+                    <!-- Discovery Card -->
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-cloud-windy-line"></i></div>
                         <h3>Eternal Storm</h3>
@@ -237,6 +241,7 @@
                             years.</p>
                     </div>
 
+                    <!-- Discovery Card -->
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-bubble-chart-line"></i></div>
                         <h3>Floating Giant</h3>
@@ -244,6 +249,7 @@
                         </p>
                     </div>
 
+                    <!-- Discovery Card -->
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-arrow-up-circle-line"></i></div>
                         <h3>Martian Giant</h3>
@@ -252,6 +258,7 @@
                             times the height of Mount Everest.</p>
                     </div>
 
+                    <!-- Discovery Card -->
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-star-line"></i></div>
                         <h3>Cosmic Snowballs</h3>
@@ -260,6 +267,7 @@
                             origin of most long-period comets.</p>
                     </div>
 
+                    <!-- Discovery Card -->
                     <div class="discovery-card">
                         <div class="icon"><i class="ri-grid-line"></i></div>
                         <h3>A Fractured Moon</h3>
@@ -300,7 +308,6 @@
     </footer>
 
     <!-- Modals -->
-
     <!-- Sun Modal -->
     <div id="sun-modal" class="modal-container">
         <label for="sun-toggle" class="modal-backdrop"></label>
@@ -328,7 +335,7 @@
                         </div>
                     </div>
                     <div class="planet-card">
-                        <div class="planet-image" style="background-image: url(/Media/sun-s.png);">
+                        <div class="planet-image" style="background-image: url(Media/sun-s.png);">
                         </div>
                     </div>
                 </div>
@@ -484,7 +491,7 @@
             <div class="modal-body">
                 <div class="section-inner">
                     <div class="planet-card">
-                        <div class="planet-image" style="background-image: url(Media/Jupiter-s.png);">
+                        <div class="planet-image" style="background-image: url(Media/jupiter-s.png);">
                         </div>
                     </div>
                     <div class="facts">
@@ -616,6 +623,7 @@
         </div>
     </div>
 
+    <!-- JavaScript -->
     <script>
         // Initialize VANTA.FOG
         VANTA.current = VANTA.FOG({
@@ -631,11 +639,13 @@
         });
 
         // Twinkling stars + enhanced shooting stars (meteor shower)
+        const particleCount = window.innerWidth <= 768 ? 120 : window.innerWidth <= 1024 ? 250 : 400;
+
         tsParticles.load("tsparticles", {
             background: { color: "transparent" },
             fpsLimit: 60,
             particles: {
-                number: { value: 400, density: { enable: true, area: 800 } },
+                number: { value: particleCount, density: { enable: true, area: 800 } },
                 color: { value: "#ffffff" },
                 shape: { type: "circle" },
                 opacity: {
@@ -668,7 +678,7 @@
                         trail: { enable: true, length: 25, fillColor: "#ffffff" }
                     }
                 },
-                // Occasional double/triple shooting stars
+                // occasional double/triple shooting stars
                 {
                     direction: "none",
                     life: { duration: 0.1, count: 0 },

@@ -46,8 +46,6 @@
 
 html {
   scroll-behavior: smooth;
-  -webkit-overflow-scrolling: touch;
-  scroll-behavior: auto; /* prevents jank */
   overflow-x: hidden;
 }
 
@@ -1079,70 +1077,192 @@ label:focus-visible {
 
 /* ---------- 9. Responsive Tweaks ---------- */
 
-/* Tablets (≤1024px) */
-@media (max-width: 1024px) {
-  .modal-body .section-inner {
-    grid-template-columns: 1fr; /* stack content */
-    text-align: center;
-  }
-
-  .modal-body .section-inner.reversed {
-    grid-template-columns: 1fr; /* stack reversed also */
-  }
-
-  .planet-image {
-    max-width: 320px;
-    aspect-ratio: 1 / 1;
-  }
-
-  .discoveries-grid {
-    grid-template-columns: repeat(2, 1fr); /* 2 columns instead of 3 */
-    gap: 20px;
-  }
-}
-
-/* Phones (≤768px) */
+/* General Mobile Styles (Portrait & Landscape) */
 @media (max-width: 768px) {
-  /* Reduce particle (stars) intensity */
-  #tsparticles {
-    opacity: 0.6;
+  /* Solar system scaling */
+  .solar-system-container {
+    height: 90vh;
+    transform: scale(0.85);
   }
 
-  /* Replace heavy blur with solid background */
-  .main-header {
-    background: rgba(3, 4, 10, 0.85) !important;
-    backdrop-filter: none !important;
+  .solar-system-content {
+    transform: translate(-50%, -50%) scale(0.9);
   }
 
-  .modal-container {
-    backdrop-filter: none !important;
-    background: rgba(3, 4, 10, 0.85) !important;
+  /* Make orbits oval on portrait for better spacing */
+  @media (orientation: portrait) {
+    .orbit {
+      transform: translate(-50%, -50%) scaleX(0.7);
+    }
   }
 
+  /* Shrink planet sizes for mobile */
+  :root {
+    --sun-size: 70px;
+    --mercury-size: 14px;
+    --venus-size: 18px;
+    --earth-size: 20px;
+    --mars-size: 16px;
+    --jupiter-size: 32px;
+    --saturn-size: 30px;
+    --uranus-size: 24px;
+    --neptune-size: 22px;
+    --moon-size: 6px;
+
+    /* Increase orbit spacing so planets are visible */
+    --mercury-orbit: 80px;
+    --venus-orbit: 130px;
+    --earth-orbit: 190px;
+    --mars-orbit: 260px;
+    --jupiter-orbit: 350px;
+    --saturn-orbit: 450px;
+    --uranus-orbit: 550px;
+    --neptune-orbit: 650px;
+  }
+
+  /* Hero text scaling */
   .title {
-    font-size: clamp(1.8rem, 5vw, 3rem);
+    font-size: 2rem;
   }
 
   .lead {
     font-size: 0.95rem;
-    padding: 0 12px;
+    padding: 0 10px;
   }
 
-  .main-nav-links {
-    display: none; /* optionally hide nav links */
+  .cta {
+    padding: 10px 18px;
+    font-size: 0.85rem;
   }
 
-  .planet-image {
-    width: 240px;
-    height: 240px;
-  }
-
+  /* Discoveries section layout */
   .discoveries-grid {
-    grid-template-columns: 1fr; /* single column */
+    grid-template-columns: 1fr;
+    gap: 16px;
+  }
+
+  /* Modal adjustments - planet models responsive */
+  .modal-body {
+    padding: 24px 16px;
+  }
+
+  .modal-body .section-inner {
+    grid-template-columns: 1fr; /* Stack on phones */
+    text-align: center;
+    gap: 24px; /* Add space between image and text */
+  }
+
+  /* Allow the card to shrink vertically on mobile */
+  .planet-card {
+    min-height: auto;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  /* Ensure the planet image is responsive and circular */
+  .planet-image {
+    width: 100%;
+    max-width: 240px;
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+
+  .planet-name h2 {
+    font-size: 1.8rem;
   }
 
   .fact-grid {
-    grid-template-columns: 1fr; /* stack facts */
+    grid-template-columns: 1fr;
+  }
+
+  /* Mobile Nav */
+  .menu-icon {
+    display: flex;
+  }
+
+  .main-nav-links {
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background: rgba(3, 4, 10, 0.9);
+    backdrop-filter: blur(12px);
+    width: 220px;
+    height: calc(100% - 60px);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    padding: 20px;
+    transform: translateX(100%);
+    transition: transform 0.3s ease;
+    z-index: 100;
+  }
+
+  .menu-toggle:checked ~ .main-nav-links {
+    transform: translateX(0);
+  }
+
+  .menu-toggle:checked + .menu-icon span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+  }
+  .menu-toggle:checked + .menu-icon span:nth-child(2) {
+    opacity: 0;
+  }
+  .menu-toggle:checked + .menu-icon span:nth-child(3) {
+    transform: rotate(-45deg) translate(6px, -6px);
+  }
+}
+
+/* --- Orientation-Specific Hints --- */
+@media (max-width: 768px) and (orientation: portrait) {
+  body::before {
+    content: "📱 For best experience, rotate your phone to landscape and open fullscreen.";
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.85);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    font-size: 1rem;
+    font-weight: 500;
+    z-index: 9999;
+    padding: 20px;
+    animation: fadeOutHint 5s ease-in-out forwards;
+    animation-delay: 4s;
+  }
+}
+
+@media (max-width: 768px) and (orientation: landscape) {
+  body::after {
+    content: "↩️ Rotate back to portrait for normal view.";
+    position: fixed;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: rgba(0, 0, 0, 0.6);
+    color: #fff;
+    font-size: 0.85rem;
+    padding: 6px 12px;
+    border-radius: 999px;
+    z-index: 9999;
+  }
+}
+
+/* Keyframes for fade-out */
+@keyframes fadeOutHint {
+  0% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    visibility: hidden;
   }
 }
 
@@ -1152,17 +1272,12 @@ label:focus-visible {
     font-size: 1rem;
   }
 
-  .planet-name h2 {
-    font-size: 1.8rem;
-  }
-
   .modal-body {
     padding: 20px;
   }
 
   .planet-image {
-    width: 180px;
-    height: 180px;
+    max-width: 200px;
   }
 
   .cta {
@@ -1171,7 +1286,7 @@ label:focus-visible {
   }
 }
 
-/* ----- Mobile Nav ----- */
+/* ----- Mobile Nav Toggle ----- */
 .menu-toggle {
   display: none;
 }
@@ -1194,42 +1309,32 @@ label:focus-visible {
   transition: 0.3s ease;
 }
 
-/* Show hamburger on small screens */
-@media (max-width: 768px) {
-  .menu-icon {
-    display: flex;
-  }
-
-  .main-nav-links {
-    position: fixed;
-    top: 60px;
-    right: 0;
-    /* background: rgba(3, 4, 10, 0.95); */
-    backdrop-filter: blur(12px);
-    width: 220px;
-    height: calc(100% - 60px);
-    display: flex;
-    flex-direction: column;
-    gap: 12px;
-    padding: 20px;
-    transform: translateX(100%);
-    transition: transform 0.3s ease;
-    z-index: 100;
-  }
-
-  /* When checkbox is checked → show menu */
-  .menu-toggle:checked ~ .main-nav-links {
-    transform: translateX(0);
-  }
-
-  /* Animate hamburger into X */
-  .menu-toggle:checked + .menu-icon span:nth-child(1) {
-    transform: rotate(45deg) translate(5px, 5px);
-  }
-  .menu-toggle:checked + .menu-icon span:nth-child(2) {
-    opacity: 0;
-  }
-  .menu-toggle:checked + .menu-icon span:nth-child(3) {
-    transform: rotate(-45deg) translate(6px, -6px);
-  }
+/* Hide the checkbox visually but keep it accessible */
+.menu-toggle {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
+  clip: rect(0, 0, 0, 0);
+  overflow: hidden;
 }
+
+/* When the checkbox is checked, show the menu */
+.menu-toggle:checked ~ .main-nav-links {
+  transform: translateX(0);
+}
+
+/* Animate the hamburger to a cross when active */
+.menu-toggle:checked + .menu-icon span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.menu-toggle:checked + .menu-icon span:nth-child(2) {
+  opacity: 0;
+}
+.menu-toggle:checked + .menu-icon span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* ----- END OF STYLES ----- */
