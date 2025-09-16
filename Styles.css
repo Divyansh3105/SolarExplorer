@@ -1237,6 +1237,22 @@ label:focus-visible {
 }
 
 @media (max-width: 768px) and (orientation: landscape) {
+  :root {
+    --mercury-orbit: 60px;
+    --venus-orbit: 90px;
+    --earth-orbit: 130px;
+    --mars-orbit: 170px;
+    --jupiter-orbit: 220px;
+    --saturn-orbit: 280px;
+    --uranus-orbit: 340px;
+    --neptune-orbit: 400px;
+  }
+
+  .solar-system-container {
+    transform: scale(0.85); /* fit everything */
+    height: 100vh; /* fill screen */
+  }
+
   body::after {
     content: "↩️ Rotate back to portrait for normal view.";
     position: fixed;
@@ -1338,3 +1354,42 @@ label:focus-visible {
 }
 
 /* ----- END OF STYLES ----- */
+
+/* --- Mobile Modal Fixes --- */
+@media (max-width: 768px) {
+  .modal-content {
+    max-width: 95%;
+    width: auto;
+  }
+
+  .modal-body .section-inner {
+    grid-template-columns: 1fr !important; /* stack content */
+    text-align: center;
+    gap: 20px;
+  }
+
+  .planet-card {
+    min-height: auto;
+    background: none;
+    border: none;
+    box-shadow: none;
+  }
+
+  .planet-image {
+    width: 100%;
+    max-width: 200px; /* responsive cap */
+    height: auto;
+    aspect-ratio: 1 / 1;
+    margin: 0 auto;
+    border-radius: 50%;
+  }
+
+  .planet-name h2 {
+    font-size: 1.6rem; /* smaller title */
+  }
+
+  .fact-grid {
+    grid-template-columns: 1fr; /* stack facts */
+    gap: 10px;
+  }
+}
