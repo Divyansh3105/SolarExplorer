@@ -15,7 +15,6 @@
 ![Netlify](https://img.shields.io/badge/Netlify-00C7B7?style=for-the-badge&logo=netlify&logoColor=white)
 ![GitHub](https://img.shields.io/badge/GitHub-Repo-181717?style=for-the-badge&logo=github)
 ![Vanta.js](https://img.shields.io/badge/Vanta.js-FF3E00?style=for-the-badge&logo=Vercel&logoColor=white)
-![Three.js](https://img.shields.io/badge/Three.js-000000?style=for-the-badge&logo=three.js&logoColor=white)
 ![tsParticles](https://img.shields.io/badge/tsParticles-6C63FF?style=for-the-badge&logo=javascript&logoColor=white)
 
 > _A fully **CSS-powered interactive Solar System** with responsive design, orbit animations, and visually stunning effects—no JavaScript required._
