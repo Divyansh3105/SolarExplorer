@@ -626,14 +626,13 @@ label:focus-visible {
   border-radius: 50%;
 }
 
-/* tooltip base (hidden by default, upright) */
 .planet::after,
 .sun::after {
   content: attr(data-info);
   position: absolute;
-  top: -36px; /* adjust vertical gap above planet */
+  top: -36px;
   left: 50%;
-  transform: translateX(-50%); /* center horizontally */
+  transform: translateX(-50%);
   transform-origin: center;
   background: rgba(0, 0, 0, 0.85);
   color: #fff;
@@ -648,14 +647,12 @@ label:focus-visible {
   will-change: transform;
 }
 
-/* show on hover with a tiny slide */
 .planet:hover::after,
 .sun:hover::after {
   opacity: 1;
   transform: translateX(-50%) translateY(-6px);
 }
 
-/* keyframes: counter-rotate the tooltip so it visually stays upright */
 @keyframes unrotate {
   from {
     transform: translateX(-50%) rotate(0deg);
@@ -664,9 +661,6 @@ label:focus-visible {
     transform: translateX(-50%) rotate(-360deg);
   }
 }
-
-/* Apply counter-rotation with the same duration as each rotator */
-/* (match these durations to the corresponding .*-rotator animation-duration) */
 
 .mercury-rotator .planet-mercury::after {
   animation: unrotate 8.8s linear infinite;
@@ -693,7 +687,6 @@ label:focus-visible {
   animation: unrotate 650s linear infinite;
 }
 
-/* Optional tweak: make sure the sun's label (if any) isn't animated */
 .sun::after {
   animation: none;
 }
@@ -840,11 +833,104 @@ label:focus-visible {
   background: var(--glass);
 }
 
+@keyframes lightning-border {
+  0%,
+  100% {
+    box-shadow: inset 0 0 10px 2px var(--color1, rgba(109, 227, 255, 0.4)),
+      inset 0 0 20px 4px var(--color2, rgba(155, 123, 255, 0.4));
+    opacity: 0.7;
+  }
+  20% {
+    box-shadow: inset 0 0 15px 4px var(--color1, rgba(109, 227, 255, 0.8)),
+      inset 0 0 30px 6px var(--color2, rgba(155, 123, 255, 0.6));
+    opacity: 1;
+  }
+  40% {
+    box-shadow: inset 0 0 8px 2px var(--color1, rgba(109, 227, 255, 0.5)),
+      inset 0 0 15px 3px var(--color2, rgba(155, 123, 255, 0.4));
+    opacity: 0.6;
+  }
+  60% {
+    box-shadow: inset 0 0 20px 5px var(--color1, rgba(109, 227, 255, 0.9)),
+      inset 0 0 40px 8px var(--color2, rgba(155, 123, 255, 0.7));
+    opacity: 1;
+  }
+  80% {
+    box-shadow: inset 0 0 12px 3px var(--color1, rgba(109, 227, 255, 0.6)),
+      inset 0 0 25px 5px var(--color2, rgba(155, 123, 255, 0.5));
+    opacity: 0.8;
+  }
+}
+
+.modal-content {
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+}
+
+.modal-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  animation: lightning-border 3s ease-in-out infinite;
+  z-index: 1;
+}
+
+#sun-modal .modal-content::before {
+  --color1: rgba(255, 200, 0, 1);
+  --color2: rgba(255, 80, 0, 0.9);
+  animation: lightning-border 1.2s steps(4) infinite;
+}
+
+#mercury-modal .modal-content::before {
+  --color1: rgba(200, 200, 200, 0.8);
+  --color2: rgba(150, 150, 150, 0.6);
+}
+
+#venus-modal .modal-content::before {
+  --color1: rgba(255, 170, 60, 0.8);
+  --color2: rgba(255, 120, 50, 0.6);
+}
+
+#earth-modal .modal-content::before {
+  --color1: rgba(0, 150, 255, 0.8);
+  --color2: rgba(0, 255, 150, 0.6);
+}
+
+#mars-modal .modal-content::before {
+  --color1: rgba(255, 80, 60, 0.8);
+  --color2: rgba(200, 40, 30, 0.6);
+}
+
+#jupiter-modal .modal-content::before {
+  --color1: rgba(255, 220, 180, 0.8);
+  --color2: rgba(200, 120, 80, 0.6);
+}
+
+#saturn-modal .modal-content::before {
+  --color1: rgba(255, 220, 120, 0.8);
+  --color2: rgba(180, 140, 80, 0.6);
+}
+
+#uranus-modal .modal-content::before {
+  --color1: rgba(120, 255, 255, 0.8);
+  --color2: rgba(80, 200, 200, 0.6);
+}
+
+#neptune-modal .modal-content::before {
+  --color1: rgba(100, 140, 255, 0.8);
+  --color2: rgba(60, 100, 200, 0.6);
+}
+
 .planet-image {
   width: 450px;
   height: 450px;
   background-position: center;
   background-size: cover;
+  position: relative;
+  z-index: 2;
 }
 
 .facts .accent-line {
@@ -1077,7 +1163,6 @@ label:focus-visible {
 
 /* ---------- 9. Responsive Tweaks ---------- */
 
-/* General Mobile Styles (Portrait & Landscape) */
 @media (max-width: 768px) {
   #milkyway-bg,
   #vanta-fog,
@@ -1088,14 +1173,13 @@ label:focus-visible {
     width: 100%;
     height: 100%;
     will-change: transform;
-    transform: translateZ(0); /* GPU layer */
+    transform: translateZ(0);
     backface-visibility: hidden;
-    -webkit-transform: translateZ(0); /* Safari iOS fix */
+    -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
-    touch-action: none; /* prevents scroll-jank */
+    touch-action: none;
   }
 
-  /* Solar system scaling */
   .solar-system-container {
     height: 90vh;
     transform: scale(0.85);
@@ -1105,14 +1189,12 @@ label:focus-visible {
     transform: translate(-50%, -50%) scale(0.9);
   }
 
-  /* Make orbits oval on portrait for better spacing */
   @media (orientation: portrait) {
     .orbit {
       transform: translate(-50%, -50%) scaleX(0.7);
     }
   }
 
-  /* Shrink planet sizes for mobile */
   :root {
     --sun-size: 70px;
     --mercury-size: 14px;
@@ -1125,7 +1207,6 @@ label:focus-visible {
     --neptune-size: 22px;
     --moon-size: 6px;
 
-    /* Increase orbit spacing so planets are visible */
     --mercury-orbit: 80px;
     --venus-orbit: 130px;
     --earth-orbit: 190px;
@@ -1136,7 +1217,6 @@ label:focus-visible {
     --neptune-orbit: 650px;
   }
 
-  /* Hero text scaling */
   .title {
     font-size: 2rem;
   }
@@ -1151,24 +1231,21 @@ label:focus-visible {
     font-size: 0.85rem;
   }
 
-  /* Discoveries section layout */
   .discoveries-grid {
     grid-template-columns: 1fr;
     gap: 16px;
   }
 
-  /* Modal adjustments - planet models responsive */
   .modal-body {
     padding: 24px 16px;
   }
 
   .modal-body .section-inner {
-    grid-template-columns: 1fr; /* Stack on phones */
+    grid-template-columns: 1fr;
     text-align: center;
-    gap: 24px; /* Add space between image and text */
+    gap: 24px;
   }
 
-  /* Allow the card to shrink vertically on mobile */
   .planet-card {
     min-height: auto;
     background: none;
@@ -1176,7 +1253,6 @@ label:focus-visible {
     box-shadow: none;
   }
 
-  /* Ensure the planet image is responsive and circular */
   .planet-image {
     width: 100%;
     max-width: 240px;
@@ -1194,7 +1270,6 @@ label:focus-visible {
     grid-template-columns: 1fr;
   }
 
-  /* Mobile Nav */
   .menu-icon {
     display: flex;
   }
@@ -1231,7 +1306,6 @@ label:focus-visible {
   }
 }
 
-/* --- Orientation-Specific Hints --- */
 @media (max-width: 768px) and (orientation: portrait) {
   body::before {
     content: "📱 For best experience, rotate your phone to landscape and open fullscreen.";
@@ -1265,8 +1339,8 @@ label:focus-visible {
   }
 
   .solar-system-container {
-    transform: scale(0.85); /* fit everything */
-    height: 100vh; /* fill screen */
+    transform: scale(0.85);
+    height: 100vh;
   }
 
   body::after {
@@ -1284,7 +1358,6 @@ label:focus-visible {
   }
 }
 
-/* Keyframes for fade-out */
 @keyframes fadeOutHint {
   0% {
     opacity: 1;
@@ -1298,7 +1371,6 @@ label:focus-visible {
   }
 }
 
-/* Small Phones (≤480px) */
 @media (max-width: 480px) {
   .header-brand .brand-text h1 {
     font-size: 1rem;
@@ -1341,7 +1413,6 @@ label:focus-visible {
   transition: 0.3s ease;
 }
 
-/* Hide the checkbox visually but keep it accessible */
 .menu-toggle {
   position: absolute;
   width: 1px;
@@ -1353,12 +1424,10 @@ label:focus-visible {
   overflow: hidden;
 }
 
-/* When the checkbox is checked, show the menu */
 .menu-toggle:checked ~ .main-nav-links {
   transform: translateX(0);
 }
 
-/* Animate the hamburger to a cross when active */
 .menu-toggle:checked + .menu-icon span:nth-child(1) {
   transform: rotate(45deg) translate(5px, 5px);
 }
@@ -1371,7 +1440,6 @@ label:focus-visible {
 
 /* ----- END OF STYLES ----- */
 
-/* --- Mobile Modal Fixes --- */
 @media (max-width: 768px) {
   .modal-content {
     max-width: 95%;
@@ -1379,8 +1447,7 @@ label:focus-visible {
   }
 
   .modal-body .section-inner {
-    grid-template-columns: 1fr !important; /* stack content */
-    text-align: center;
+    grid-template-columns: 1fr !important;
     gap: 20px;
   }
 
@@ -1393,7 +1460,7 @@ label:focus-visible {
 
   .planet-image {
     width: 100%;
-    max-width: 200px; /* responsive cap */
+    max-width: 200px;
     height: auto;
     aspect-ratio: 1 / 1;
     margin: 0 auto;
@@ -1401,11 +1468,11 @@ label:focus-visible {
   }
 
   .planet-name h2 {
-    font-size: 1.6rem; /* smaller title */
+    font-size: 1.6rem;
   }
 
   .fact-grid {
-    grid-template-columns: 1fr; /* stack facts */
+    grid-template-columns: 1fr;
     gap: 10px;
   }
 }
