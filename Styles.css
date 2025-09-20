@@ -1,4 +1,5 @@
 /* --------- 1. Foundational Styles & Variables --------- */
+/* Root Variables */
 :root {
   /* Color Palette */
   --bg-900: #03040a;
@@ -24,6 +25,7 @@
   --neptune-size: 31px;
   --moon-size: 7px;
 
+  /* Orbit Sizes */
   --mercury-orbit: 100px;
   --venus-orbit: 150px;
   --earth-orbit: 210px;
@@ -44,6 +46,7 @@
   user-select: text !important;
 }
 
+/* Scroll Behavior */
 html {
   scroll-behavior: smooth;
   overflow-x: hidden;
@@ -81,6 +84,7 @@ html {
   z-index: -1;
 }
 
+/* Body Styles */
 body {
   font-family: "Inter", system-ui, -apple-system, "Segoe UI", Roboto,
     "Helvetica Neue", Arial;
@@ -102,6 +106,7 @@ body {
 }
 
 /* --------- 2. Layout & Reusable Components --------- */
+/* Container */
 .container {
   max-width: var(--max-width);
   margin: 0 auto;
@@ -110,6 +115,7 @@ body {
   z-index: 2;
 }
 
+/* Headings */
 h1,
 h2,
 h3 {
@@ -117,6 +123,7 @@ h3 {
   font-weight: 700;
 }
 
+/* Accent Gradient Text */
 .accent-gradient-text {
   background: linear-gradient(90deg, var(--accent), var(--accent-2));
   -webkit-background-clip: text;
@@ -124,11 +131,13 @@ h3 {
   color: transparent;
 }
 
+/* Links & Focus States */
 a {
   color: inherit;
   text-decoration: none;
 }
 
+/* Focus States */
 a:focus-visible,
 label:focus-visible {
   outline: 2px solid var(--accent);
@@ -137,6 +146,7 @@ label:focus-visible {
 }
 
 /* --------- 3.Header & Navigation --------- */
+/* Main Header */
 .main-header {
   position: fixed;
   top: 0;
@@ -150,18 +160,21 @@ label:focus-visible {
   transition: all 0.3s ease;
 }
 
+/* Header Inner */
 .main-header .header-inner {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+/* Header Brand */
 .header-brand {
   display: flex;
   align-items: center;
   gap: 12px;
 }
 
+/* Logo Icon */
 .header-brand .logo-icon {
   width: 40px;
   height: 40px;
@@ -177,6 +190,7 @@ label:focus-visible {
   color: var(--bg-900);
 }
 
+/* Brand Text */
 .header-brand .brand-text h1 {
   font-size: 1.2rem;
   letter-spacing: 0.05em;
@@ -185,6 +199,7 @@ label:focus-visible {
   color: #fff;
 }
 
+/* Brand Description */
 .header-brand .brand-text p {
   font-size: 0.7rem;
   color: var(--muted);
@@ -192,6 +207,7 @@ label:focus-visible {
   line-height: 1;
 }
 
+/* Main Navigation Links */
 .main-nav-links a {
   padding: 8px 16px;
   color: var(--muted);
@@ -201,12 +217,14 @@ label:focus-visible {
   transition: color 0.2s ease, background-color 0.2s ease;
 }
 
+/* Hover States */
 .main-nav-links a:hover {
   color: #fff;
   background-color: var(--glass);
 }
 
 /* --------- 4. Static Hero Section --------- */
+/* Hero Background */
 .static-hero {
   min-height: 100vh;
   padding-top: 80px;
@@ -217,6 +235,7 @@ label:focus-visible {
   position: relative;
 }
 
+/* Hero Background */
 .static-hero .hero-bg {
   position: absolute;
   inset: 0;
@@ -233,10 +252,12 @@ label:focus-visible {
     );
 }
 
+/* Hero Inner */
 .static-hero .hero-inner {
   z-index: 1;
 }
 
+/* Title */
 .title {
   font-size: clamp(2.5rem, 6vw, 4.5rem);
   letter-spacing: 0.08em;
@@ -244,6 +265,7 @@ label:focus-visible {
   text-shadow: 0 4px 24px rgba(155, 123, 255, 0.1);
 }
 
+/* Lead Paragraph */
 .lead {
   max-width: 650px;
   margin: 0 auto 32px;
@@ -252,6 +274,7 @@ label:focus-visible {
   line-height: 1.6;
 }
 
+/* Call to Action Button */
 .cta {
   display: inline-flex;
   align-items: center;
@@ -272,6 +295,7 @@ label:focus-visible {
 }
 
 /* --------- 5. Interactive Solar System Section --------- */
+/* Interactive Hero */
 .interactive-hero {
   position: relative;
   display: flex;
@@ -286,6 +310,7 @@ label:focus-visible {
   );
 }
 
+/* Solar System Container */
 .solar-system-container {
   position: relative;
   width: 100%;
@@ -295,6 +320,7 @@ label:focus-visible {
   transform: scale(0.9);
 }
 
+/* Solar System Content */
 .solar-system-content {
   position: absolute;
   top: 50%;
@@ -302,6 +328,7 @@ label:focus-visible {
   transform: translate(-50%, -50%);
 }
 
+/* Planet */
 .planet {
   position: absolute;
   top: 50%;
@@ -324,11 +351,13 @@ label:focus-visible {
   transform: translate(-50%, -50%) rotateZ(0deg);
 }
 
+/* Sun */
 .sun:hover {
   z-index: 50;
   box-shadow: 0 0 60px 20px rgba(255, 200, 0, 0.8);
 }
 
+/* Orbit */
 .orbit {
   position: absolute;
   border-radius: 50%;
@@ -338,6 +367,7 @@ label:focus-visible {
   transform: translate(-50%, -50%);
 }
 
+/* Rotator */
 .rotator {
   position: absolute;
   top: 50%;
@@ -348,6 +378,7 @@ label:focus-visible {
   animation-iteration-count: infinite;
 }
 
+/* Rotator Animation */
 @keyframes rotate {
   from {
     transform: translate(-50%, -50%) rotate(0deg);
@@ -357,6 +388,7 @@ label:focus-visible {
   }
 }
 
+/* Sun Styles */
 .sun {
   width: var(--sun-size);
   height: var(--sun-size);
@@ -373,6 +405,7 @@ label:focus-visible {
   cursor: pointer;
 }
 
+/* Planet Mercury */
 .planet-mercury {
   width: var(--mercury-size);
   height: var(--mercury-size);
@@ -382,6 +415,7 @@ label:focus-visible {
     0 0 8px #b1b1b1;
 }
 
+/* Mercury Orbit */
 .mercury-orbit {
   height: calc(var(--mercury-orbit) * 2);
   width: calc(var(--mercury-orbit) * 2);
@@ -389,12 +423,14 @@ label:focus-visible {
   z-index: 8;
 }
 
+/* Mercury Rotator */
 .mercury-rotator {
   width: calc(var(--mercury-orbit) * 2);
   height: calc(var(--mercury-orbit) * 2);
   animation-duration: 8.8s;
 }
 
+/* Planet Venus */
 .planet-venus {
   width: var(--venus-size);
   height: var(--venus-size);
@@ -404,6 +440,7 @@ label:focus-visible {
     0 0 12px #f8c25d;
 }
 
+/* Venus Orbit */
 .venus-orbit {
   height: calc(var(--venus-orbit) * 2);
   width: calc(var(--venus-orbit) * 2);
@@ -411,12 +448,14 @@ label:focus-visible {
   z-index: 7;
 }
 
+/* Venus Rotator */
 .venus-rotator {
   width: calc(var(--venus-orbit) * 2);
   height: calc(var(--venus-orbit) * 2);
   animation-duration: 22.5s;
 }
 
+/* Planet Earth */
 .planet-earth {
   width: var(--earth-size);
   height: var(--earth-size);
@@ -428,6 +467,7 @@ label:focus-visible {
     0 0 15px #6fa1d1;
 }
 
+/* Earth Orbit */
 .earth-orbit {
   height: calc(var(--earth-orbit) * 2);
   width: calc(var(--earth-orbit) * 2);
@@ -435,12 +475,14 @@ label:focus-visible {
   z-index: 6;
 }
 
+/* Earth Rotator */
 .earth-rotator {
   width: calc(var(--earth-orbit) * 2);
   height: calc(var(--earth-orbit) * 2);
   animation-duration: 36.5s;
 }
 
+/* Moon Styles */
 .moon {
   position: absolute;
   top: 50%;
@@ -455,6 +497,7 @@ label:focus-visible {
   animation: moon-orbit 2.73s linear infinite;
 }
 
+/* Moon Orbit Animation */
 @keyframes moon-orbit {
   from {
     transform: rotate(0deg) translateX(var(--moon-orbit)) rotate(0deg);
@@ -464,6 +507,7 @@ label:focus-visible {
   }
 }
 
+/* Planet Mars */
 .planet-mars {
   width: var(--mars-size);
   height: var(--mars-size);
@@ -475,6 +519,7 @@ label:focus-visible {
     0 0 10px #c1440e;
 }
 
+/* Mars Orbit */
 .mars-orbit {
   height: calc(var(--mars-orbit) * 2);
   width: calc(var(--mars-orbit) * 2);
@@ -482,12 +527,14 @@ label:focus-visible {
   z-index: 5;
 }
 
+/* Mars Rotator */
 .mars-rotator {
   width: calc(var(--mars-orbit) * 2);
   height: calc(var(--mars-orbit) * 2);
   animation-duration: 68.7s;
 }
 
+/* Planet Jupiter */
 .planet-jupiter {
   width: var(--jupiter-size);
   height: var(--jupiter-size);
@@ -499,6 +546,7 @@ label:focus-visible {
   transform: translate(-50%, -50%) rotateZ(3deg);
 }
 
+/* Jupiter Orbit */
 .jupiter-orbit {
   height: calc(var(--jupiter-orbit) * 2);
   width: calc(var(--jupiter-orbit) * 2);
@@ -506,12 +554,14 @@ label:focus-visible {
   z-index: 4;
 }
 
+/* Jupiter Rotator */
 .jupiter-rotator {
   width: calc(var(--jupiter-orbit) * 2);
   height: calc(var(--jupiter-orbit) * 2);
   animation-duration: 120s;
 }
 
+/* Planet Saturn */
 .planet-saturn {
   width: var(--saturn-size);
   height: var(--saturn-size);
@@ -523,6 +573,7 @@ label:focus-visible {
   transform: translate(-50%, -50%) rotateZ(27deg);
 }
 
+/* Saturn Orbit */
 .saturn-orbit {
   height: calc(var(--saturn-orbit) * 2);
   width: calc(var(--saturn-orbit) * 2);
@@ -530,12 +581,14 @@ label:focus-visible {
   z-index: 3;
 }
 
+/* Saturn Rotator */
 .saturn-rotator {
   width: calc(var(--saturn-orbit) * 2);
   height: calc(var(--saturn-orbit) * 2);
   animation-duration: 290s;
 }
 
+/* Saturn Rings */
 .rings {
   position: absolute;
   width: 100%;
@@ -571,6 +624,7 @@ label:focus-visible {
   clip-path: polygon(0 50%, 100% 50%, 100% 100%, 0 100%);
 }
 
+/* Planet Uranus */
 .planet-uranus {
   width: var(--uranus-size);
   height: var(--uranus-size);
@@ -582,6 +636,7 @@ label:focus-visible {
   transform: translate(-50%, -50%) rotateZ(98deg);
 }
 
+/* Uranus Orbit */
 .uranus-orbit {
   height: calc(var(--uranus-orbit) * 2);
   width: calc(var(--uranus-orbit) * 2);
@@ -589,12 +644,14 @@ label:focus-visible {
   z-index: 2;
 }
 
+/* Uranus Rotator */
 .uranus-rotator {
   width: calc(var(--uranus-orbit) * 2);
   height: calc(var(--uranus-orbit) * 2);
   animation-duration: 420s;
 }
 
+/* Planet Neptune */
 .planet-neptune {
   width: var(--neptune-size);
   height: var(--neptune-size);
@@ -606,6 +663,7 @@ label:focus-visible {
   transform: translate(-50%, -50%) rotateZ(28deg);
 }
 
+/* Neptune Orbit */
 .neptune-orbit {
   height: calc(var(--neptune-orbit) * 2);
   width: calc(var(--neptune-orbit) * 2);
@@ -613,12 +671,14 @@ label:focus-visible {
   z-index: 1;
 }
 
+/* Neptune Rotator */
 .neptune-rotator {
   width: calc(var(--neptune-orbit) * 2);
   height: calc(var(--neptune-orbit) * 2);
   animation-duration: 650s;
 }
 
+/* Tooltip Styles */
 .planet::before {
   content: "";
   position: absolute;
@@ -653,6 +713,7 @@ label:focus-visible {
   transform: translateX(-50%) translateY(-6px);
 }
 
+/* Unrotate Planet Textures */
 @keyframes unrotate {
   from {
     transform: translateX(-50%) rotate(0deg);
@@ -662,52 +723,72 @@ label:focus-visible {
   }
 }
 
+/* Mercury Rotator */
 .mercury-rotator .planet-mercury::after {
   animation: unrotate 8.8s linear infinite;
 }
+
+/* Venus Rotator */
 .venus-rotator .planet-venus::after {
   animation: unrotate 22.5s linear infinite;
 }
+
+/* Earth Rotator */
 .earth-rotator .planet-earth::after {
   animation: unrotate 36.5s linear infinite;
 }
+
+/* Mars Rotator */
 .mars-rotator .planet-mars::after {
   animation: unrotate 68.7s linear infinite;
 }
+
+/* Jupiter Rotator */
 .jupiter-rotator .planet-jupiter::after {
   animation: unrotate 120s linear infinite;
 }
+
+/* Saturn Rotator */
 .saturn-rotator .planet-saturn::after {
   animation: unrotate 290s linear infinite;
 }
+
+/* Uranus Rotator */
 .uranus-rotator .planet-uranus::after {
   animation: unrotate 420s linear infinite;
 }
+
+/* Neptune Rotator */
 .neptune-rotator .planet-neptune::after {
   animation: unrotate 650s linear infinite;
 }
 
+/* Sun Rotator */
 .sun::after {
   animation: none;
 }
 
+/* 3D Effect */
 .planet,
 .sun {
   transform-style: preserve-3d;
 }
 
+/* Planet Tooltips */
 .planet::after,
 .sun::after {
   transform-origin: center;
   pointer-events: none;
 }
 
+/* Sun Glow */
 @keyframes sun-glow {
   50% {
     box-shadow: 0 0 50px #f97316, 0 0 80px #f59e0b;
   }
 }
 
+/* Texture Spin */
 @keyframes texture-spin {
   from {
     background-position: 0 0;
@@ -722,6 +803,7 @@ label:focus-visible {
   display: none;
 }
 
+/* Modal Container */
 .modal-container {
   position: fixed;
   inset: 0;
@@ -737,12 +819,14 @@ label:focus-visible {
   transition: opacity 0.3s ease, visibility 0s 0.3s linear;
 }
 
+/* Modal Backdrop */
 .modal-backdrop {
   position: absolute;
   inset: 0;
   cursor: pointer;
 }
 
+/* Modal Content */
 .modal-content {
   position: relative;
   z-index: 201;
@@ -757,6 +841,7 @@ label:focus-visible {
   transition: transform 0.3s ease;
 }
 
+/* Close Button */
 .modal-close-btn {
   position: absolute;
   top: 16px;
@@ -786,6 +871,7 @@ label:focus-visible {
   padding: 32px;
 }
 
+/* Modal Triggers */
 #sun-toggle:checked ~ #sun-modal,
 #mercury-toggle:checked ~ #mercury-modal,
 #venus-toggle:checked ~ #venus-modal,
@@ -800,6 +886,7 @@ label:focus-visible {
   transition-delay: 0s;
 }
 
+/* Modal Content */
 #sun-toggle:checked ~ #sun-modal .modal-content,
 #mercury-toggle:checked ~ #mercury-modal .modal-content,
 #venus-toggle:checked ~ #venus-modal .modal-content,
@@ -812,6 +899,7 @@ label:focus-visible {
   transform: scale(1);
 }
 
+/* Section Inner */
 .modal-body .section-inner {
   display: grid;
   gap: 32px;
@@ -819,10 +907,12 @@ label:focus-visible {
   grid-template-columns: 1fr 460px;
 }
 
+/* Section Inner Reversed */
 .modal-body .section-inner.reversed {
   grid-template-columns: 460px 1fr;
 }
 
+/* Planet Card */
 .planet-card {
   border-radius: var(--radius);
   overflow: hidden;
@@ -833,7 +923,8 @@ label:focus-visible {
   background: var(--glass);
 }
 
-@keyframes lightning-border {
+/* Pulsing Effect */
+@keyframes Pulsing {
   0%,
   100% {
     box-shadow: inset 0 0 10px 2px var(--color1, rgba(109, 227, 255, 0.4)),
@@ -862,68 +953,80 @@ label:focus-visible {
   }
 }
 
+/* Modal Content */
 .modal-content {
   position: relative;
   border-radius: 12px;
   overflow: hidden;
 }
 
+/* Pulsing Effect */
 .modal-content::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
   pointer-events: none;
-  animation: lightning-border 3s ease-in-out infinite;
+  animation: Pulsing 3s ease-in-out infinite;
   z-index: 1;
 }
 
+/* Sun Modal Border */
 #sun-modal .modal-content::before {
   --color1: rgba(255, 200, 0, 1);
   --color2: rgba(255, 80, 0, 0.9);
-  animation: lightning-border 1.2s steps(4) infinite;
+  animation: Pulsing 1.2s steps(4) infinite;
 }
 
+/* Mercury Modal Border */
 #mercury-modal .modal-content::before {
   --color1: rgba(200, 200, 200, 0.8);
   --color2: rgba(150, 150, 150, 0.6);
 }
 
+/* Venus Modal Border */
 #venus-modal .modal-content::before {
   --color1: rgba(255, 170, 60, 0.8);
   --color2: rgba(255, 120, 50, 0.6);
 }
 
+/* Earth Modal Border */
 #earth-modal .modal-content::before {
   --color1: rgba(0, 150, 255, 0.8);
   --color2: rgba(0, 255, 150, 0.6);
 }
 
+/* Mars Modal Border */
 #mars-modal .modal-content::before {
   --color1: rgba(255, 80, 60, 0.8);
   --color2: rgba(200, 40, 30, 0.6);
 }
 
+/* Jupiter Modal Border */
 #jupiter-modal .modal-content::before {
   --color1: rgba(255, 220, 180, 0.8);
   --color2: rgba(200, 120, 80, 0.6);
 }
 
+/* Saturn Modal Border */
 #saturn-modal .modal-content::before {
   --color1: rgba(255, 220, 120, 0.8);
   --color2: rgba(180, 140, 80, 0.6);
 }
 
+/* Uranus Modal Border */
 #uranus-modal .modal-content::before {
   --color1: rgba(120, 255, 255, 0.8);
   --color2: rgba(80, 200, 200, 0.6);
 }
 
+/* Neptune Modal Border */
 #neptune-modal .modal-content::before {
   --color1: rgba(100, 140, 255, 0.8);
   --color2: rgba(60, 100, 200, 0.6);
 }
 
+/* Planet Image */
 .planet-image {
   width: 450px;
   height: 450px;
@@ -933,6 +1036,7 @@ label:focus-visible {
   z-index: 2;
 }
 
+/* Facts Section */
 .facts .accent-line {
   width: 64px;
   height: 6px;
@@ -941,6 +1045,7 @@ label:focus-visible {
   margin-bottom: 20px;
 }
 
+/* Planet Name */
 .planet-name {
   display: flex;
   gap: 16px;
@@ -960,6 +1065,7 @@ label:focus-visible {
   margin-top: 4px;
 }
 
+/* Planet Symbol */
 .planet-name .symbol {
   width: 50px;
   height: 50px;
@@ -975,6 +1081,7 @@ label:focus-visible {
   box-shadow: inset 0 -6px 18px rgba(0, 0, 0, 0.45);
 }
 
+/* Description */
 .desc {
   color: var(--muted);
   font-size: 1rem;
@@ -982,6 +1089,7 @@ label:focus-visible {
   margin-bottom: 16px;
 }
 
+/* Read More Link */
 .read-more-link {
   display: inline-block;
   margin-bottom: 24px;
@@ -1001,12 +1109,14 @@ label:focus-visible {
   color: #fff;
 }
 
+/* Facts Grid */
 .fact-grid {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   gap: 12px;
 }
 
+/* Fact Item */
 .fact {
   background: var(--glass);
   padding: 12px;
@@ -1014,6 +1124,7 @@ label:focus-visible {
   border: 1px solid rgba(255, 255, 255, 0.02);
 }
 
+/* Fact Item Label */
 .fact label {
   display: block;
   font-size: 0.8rem;
@@ -1021,6 +1132,7 @@ label:focus-visible {
   margin-bottom: 4px;
 }
 
+/* Fact Item Value */
 .fact strong {
   display: block;
   font-size: 1rem;
@@ -1039,6 +1151,7 @@ label:focus-visible {
   margin: 0 auto 48px;
 }
 
+/* Eyebrow */
 .section-header .eyebrow {
   display: inline-flex;
   align-items: center;
@@ -1053,16 +1166,19 @@ label:focus-visible {
   margin-bottom: 16px;
 }
 
+/* Section Title */
 .section-header h2 {
   font-size: 3rem;
   margin-bottom: 12px;
 }
 
+/* Section Description */
 .section-header p {
   color: var(--muted);
   font-size: 1.1rem;
 }
 
+/* Discoveries Grid */
 .discoveries-grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -1070,6 +1186,7 @@ label:focus-visible {
   text-align: left;
 }
 
+/* Discovery Card */
 .discovery-card {
   background: var(--glass-strong);
   padding: 24px;
@@ -1078,11 +1195,13 @@ label:focus-visible {
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+/* Discovery Card Hover Effect */
 .discovery-card:hover {
   transform: translateY(-8px);
   box-shadow: 0 20px 40px rgba(109, 227, 255, 0.05);
 }
 
+/* Discovery Card Icon */
 .discovery-card .icon {
   width: 50px;
   height: 50px;
@@ -1127,10 +1246,12 @@ label:focus-visible {
   width: 12px;
 }
 
+/* Scrollbar Track */
 ::-webkit-scrollbar-track {
   background: var(--bg-900);
 }
 
+/* Scrollbar Thumb */
 ::-webkit-scrollbar-thumb {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   border-radius: 6px;
@@ -1139,6 +1260,7 @@ label:focus-visible {
   box-shadow: 0 0 6px var(--accent);
 }
 
+/* Scrollbar Thumb Hover */
 ::-webkit-scrollbar-thumb:hover {
   background: linear-gradient(135deg, var(--accent-2), var(--accent));
   box-shadow: 0 0 12px var(--accent-2), 0 0 18px var(--accent);
@@ -1156,14 +1278,20 @@ label:focus-visible {
   color: var(--bg-100);
 }
 
+/* Firefox */
 ::-moz-selection {
   background: linear-gradient(135deg, var(--accent), var(--accent-2));
   color: var(--bg-100);
 }
 
-/* ---------- 9. Responsive Tweaks ---------- */
-
+/* ------- 9. Responsive Tweaks ---------- */
+/* Mobile Styles */
 @media (max-width: 768px) {
+  body {
+    background-attachment: scroll;
+  }
+
+  /* Background Effects */
   #milkyway-bg,
   #vanta-fog,
   #tsparticles {
@@ -1180,15 +1308,18 @@ label:focus-visible {
     touch-action: none;
   }
 
+  /* Solar System Container */
   .solar-system-container {
     height: 90vh;
     transform: scale(0.85);
   }
 
+  /* Solar System Content */
   .solar-system-content {
     transform: translate(-50%, -50%) scale(0.9);
   }
 
+  /* Orbit */
   @media (orientation: portrait) {
     .orbit {
       transform: translate(-50%, -50%) scaleX(0.7);
@@ -1196,6 +1327,7 @@ label:focus-visible {
   }
 
   :root {
+    /* Planet Sizes */
     --sun-size: 70px;
     --mercury-size: 14px;
     --venus-size: 18px;
@@ -1207,6 +1339,7 @@ label:focus-visible {
     --neptune-size: 22px;
     --moon-size: 6px;
 
+    /* Orbit Sizes */
     --mercury-orbit: 80px;
     --venus-orbit: 130px;
     --earth-orbit: 190px;
@@ -1241,9 +1374,9 @@ label:focus-visible {
   }
 
   .modal-body .section-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr !important;
     text-align: center;
-    gap: 24px;
+    gap: 20px;
   }
 
   .planet-card {
@@ -1255,7 +1388,7 @@ label:focus-visible {
 
   .planet-image {
     width: 100%;
-    max-width: 240px;
+    max-width: 200px;
     height: auto;
     aspect-ratio: 1 / 1;
     margin: 0 auto;
@@ -1263,11 +1396,12 @@ label:focus-visible {
   }
 
   .planet-name h2 {
-    font-size: 1.8rem;
+    font-size: 1.6rem;
   }
 
   .fact-grid {
     grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .menu-icon {
@@ -1291,21 +1425,31 @@ label:focus-visible {
     z-index: 100;
   }
 
+  /* Menu Toggle */
   .menu-toggle:checked ~ .main-nav-links {
     transform: translateX(0);
   }
 
+  /* Menu Icon */
   .menu-toggle:checked + .menu-icon span:nth-child(1) {
     transform: rotate(45deg) translate(5px, 5px);
   }
+
   .menu-toggle:checked + .menu-icon span:nth-child(2) {
     opacity: 0;
   }
+
   .menu-toggle:checked + .menu-icon span:nth-child(3) {
     transform: rotate(-45deg) translate(6px, -6px);
   }
+
+  .modal-content {
+    max-width: 95%;
+    width: auto;
+  }
 }
 
+/* Portrait Mode Hint */
 @media (max-width: 768px) and (orientation: portrait) {
   body::before {
     content: "📱 For best experience, rotate your phone to landscape and open fullscreen.";
@@ -1326,6 +1470,7 @@ label:focus-visible {
   }
 }
 
+/* Landscape Mode Hint */
 @media (max-width: 768px) and (orientation: landscape) {
   :root {
     --mercury-orbit: 60px;
@@ -1343,6 +1488,7 @@ label:focus-visible {
     height: 100vh;
   }
 
+  /* Landscape Mode Hint */
   body::after {
     content: "↩️ Rotate back to portrait for normal view.";
     position: fixed;
@@ -1358,6 +1504,7 @@ label:focus-visible {
   }
 }
 
+/* Keyframes - Fade Out Hint */
 @keyframes fadeOutHint {
   0% {
     opacity: 1;
@@ -1371,6 +1518,7 @@ label:focus-visible {
   }
 }
 
+/* Mobile Styles */
 @media (max-width: 480px) {
   .header-brand .brand-text h1 {
     font-size: 1rem;
@@ -1439,40 +1587,3 @@ label:focus-visible {
 }
 
 /* ----- END OF STYLES ----- */
-
-@media (max-width: 768px) {
-  .modal-content {
-    max-width: 95%;
-    width: auto;
-  }
-
-  .modal-body .section-inner {
-    grid-template-columns: 1fr !important;
-    gap: 20px;
-  }
-
-  .planet-card {
-    min-height: auto;
-    background: none;
-    border: none;
-    box-shadow: none;
-  }
-
-  .planet-image {
-    width: 100%;
-    max-width: 200px;
-    height: auto;
-    aspect-ratio: 1 / 1;
-    margin: 0 auto;
-    border-radius: 50%;
-  }
-
-  .planet-name h2 {
-    font-size: 1.6rem;
-  }
-
-  .fact-grid {
-    grid-template-columns: 1fr;
-    gap: 10px;
-  }
-}
