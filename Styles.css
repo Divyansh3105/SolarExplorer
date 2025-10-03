@@ -1305,7 +1305,6 @@ label:focus-visible {
     backface-visibility: hidden;
     -webkit-transform: translateZ(0);
     -webkit-backface-visibility: hidden;
-    touch-action: none;
   }
 
   /* Solar System Container */
@@ -1446,6 +1445,8 @@ label:focus-visible {
   .modal-content {
     max-width: 95%;
     width: auto;
+    -webkit-overflow-scrolling: touch;
+    overflow-y: auto;
   }
 }
 
